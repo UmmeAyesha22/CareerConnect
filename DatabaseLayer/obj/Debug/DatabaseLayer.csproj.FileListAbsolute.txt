@@ -1,0 +1,12 @@
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\DatabaseLayer.dll
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.AssemblyReference.cache
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CoreCompileInputs.cache
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\obj\Debug\DatabaseLayer.dll
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\DatabaseLayer.dll.config
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\EntityFramework.dll
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.dll
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\EntityFramework.xml
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.xml
+F:\Career Connect\Application\CareerConnect\DatabaseLayer\obj\Debug\Database.D87FB5DC.Up2Date

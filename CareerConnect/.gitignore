@@ -1,0 +1,24 @@
+# Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Databases
+*.mdf
+*.ldf
+
+# Logs
+*.log
+
+# Entity Framework
+*.dbmdl

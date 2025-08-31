@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JobSeacrhDbModelStoreContainer" CdmEntityContainer="JobSeacrhDbEntities">
+    <EntitySetMapping Name="AccountStatusTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.AccountStatusTable">
+        <MappingFragment StoreEntitySet="AccountStatusTable">
+          <ScalarProperty Name="AccountStatusID" ColumnName="AccountStatusID" />
+          <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificateTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.CertificateTable">
+        <MappingFragment StoreEntitySet="CertificateTable">
+          <ScalarProperty Name="CertificateID" ColumnName="CertificateID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="CertificateAuthority" ColumnName="CertificateAuthority" />
+          <ScalarProperty Name="LevelCertification" ColumnName="LevelCertification" />
+          <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.CompanyTable">
+        <MappingFragment StoreEntitySet="CompanyTable">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.CountryTable">
+        <MappingFragment StoreEntitySet="CountryTable">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentJobStatusTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.CurrentJobStatusTable">
+        <MappingFragment StoreEntitySet="CurrentJobStatusTable">
+          <ScalarProperty Name="CurrentJobStatusID" ColumnName="CurrentJobStatusID" />
+          <ScalarProperty Name="CurrentJobStatus" ColumnName="CurrentJobStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EducationTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.EducationTable">
+        <MappingFragment StoreEntitySet="EducationTable">
+          <ScalarProperty Name="EducationID" ColumnName="EducationID" />
+          <ScalarProperty Name="InstituteName" ColumnName="InstituteName" />
+          <ScalarProperty Name="TitleOfEducation" ColumnName="TitleOfEducation" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+          <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.EmployeeTable">
+        <MappingFragment StoreEntitySet="EmployeeTable">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="FNIC" ColumnName="FNIC" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="JobReferences" ColumnName="JobReferences" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CurrentJobStatusID" ColumnName="CurrentJobStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.EventTable">
+        <MappingFragment StoreEntitySet="EventTable">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EventContactDetails" ColumnName="EventContactDetails" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventBanner" ColumnName="EventBanner" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobApplysTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.JobApplysTable">
+        <MappingFragment StoreEntitySet="JobApplysTable">
+          <ScalarProperty Name="JobApplyID" ColumnName="JobApplyID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="JobApplyDateTime" ColumnName="JobApplyDateTime" />
+          <ScalarProperty Name="JobApplyStatusID" ColumnName="JobApplyStatusID" />
+          <ScalarProperty Name="JobApplyStatusUpdateDate" ColumnName="JobApplyStatusUpdateDate" />
+          <ScalarProperty Name="JobApplyStatusUpdateReason" ColumnName="JobApplyStatusUpdateReason" />
+          <ScalarProperty Name="PostJobID" ColumnName="PostJobID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobApplyStatusTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.JobApplyStatusTable">
+        <MappingFragment StoreEntitySet="JobApplyStatusTable">
+          <ScalarProperty Name="JobApplyStatusID" ColumnName="JobApplyStatusID" />
+          <ScalarProperty Name="JobApplyStatus" ColumnName="JobApplyStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCategoryTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.JobCategoryTable">
+        <MappingFragment StoreEntitySet="JobCategoryTable">
+          <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+          <ScalarProperty Name="JobCategory" ColumnName="JobCategory" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobStatusTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.JobStatusTable">
+        <MappingFragment StoreEntitySet="JobStatusTable">
+          <ScalarProperty Name="JobStatusID" ColumnName="JobStatusID" />
+          <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.JobTable">
+        <MappingFragment StoreEntitySet="JobTable">
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="JobRequirements" ColumnName="JobRequirements" />
+          <ScalarProperty Name="JobDetails" ColumnName="JobDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.LanguageTable">
+        <MappingFragment StoreEntitySet="LanguageTable">
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="Proficiency" ColumnName="Proficiency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostJobTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.PostJobTable">
+        <MappingFragment StoreEntitySet="PostJobTable">
+          <ScalarProperty Name="PostJobID" ColumnName="PostJobID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="RequiredPerson" ColumnName="RequiredPerson" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="MinimumExperience" ColumnName="MinimumExperience" />
+          <ScalarProperty Name="AgeLimit" ColumnName="AgeLimit" />
+          <ScalarProperty Name="MarriedStatus" ColumnName="MarriedStatus" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ShortlistDate" ColumnName="ShortlistDate" />
+          <ScalarProperty Name="InterviewDate" ColumnName="InterviewDate" />
+          <ScalarProperty Name="JobStatusID" ColumnName="JobStatusID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkillTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.SkillTable">
+        <MappingFragment StoreEntitySet="SkillTable">
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+          <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="AccountStatusID" ColumnName="AccountStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypeTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.UserTypeTable">
+        <MappingFragment StoreEntitySet="UserTypeTable">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkExperienceTables">
+      <EntityTypeMapping TypeName="JobSeacrhDbModel.WorkExperienceTable">
+        <MappingFragment StoreEntitySet="WorkExperienceTable">
+          <ScalarProperty Name="WorkExperienceID" ColumnName="WorkExperienceID" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+          <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

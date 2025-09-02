@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table tble-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Country)
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Country)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CountryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CountryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CountryID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.CountryID }, new { @class= "genric-btn primary" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.CountryID }, new { @class = "genric-btn info" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.CountryID }, new { @class = "genric-btn danger" })
         </td>
     </tr>
 }

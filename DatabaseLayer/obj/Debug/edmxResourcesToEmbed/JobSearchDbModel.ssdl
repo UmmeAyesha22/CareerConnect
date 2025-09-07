@@ -38,13 +38,6 @@
     <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Country" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
-  <EntityType Name="CurrentJobStatusTable">
-    <Key>
-      <PropertyRef Name="CurrentJobStatusID" />
-    </Key>
-    <Property Name="CurrentJobStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CurrentJobStatus" Type="nvarchar" MaxLength="450" Nullable="false" />
-  </EntityType>
   <EntityType Name="EducationTable">
     <Key>
       <PropertyRef Name="EducationID" />
@@ -81,22 +74,6 @@
     <Property Name="Description" Type="nvarchar" MaxLength="3000" />
     <Property Name="CurrentJobStatusID" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="EventTable">
-    <Key>
-      <PropertyRef Name="EventID" />
-    </Key>
-    <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EventTitle" Type="nvarchar" MaxLength="350" Nullable="false" />
-    <Property Name="EventDate" Type="datetime" Nullable="false" />
-    <Property Name="CompanyID" Type="int" Nullable="false" />
-    <Property Name="Location" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="StartDate" Type="date" Nullable="false" />
-    <Property Name="EndDate" Type="date" Nullable="false" />
-    <Property Name="EventContactDetails" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="2000" Nullable="false" />
-    <Property Name="EventBanner" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UserID" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="JobApplysTable">
     <Key>
       <PropertyRef Name="JobApplyID" />
@@ -124,22 +101,36 @@
     <Property Name="JobCategory" Type="nvarchar" MaxLength="350" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="JobNatureTable">
+    <Key>
+      <PropertyRef Name="JobNatureID" />
+    </Key>
+    <Property Name="JobNatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobNature" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobRequirementDetailTable">
+    <Key>
+      <PropertyRef Name="JobRequirementDate" />
+    </Key>
+    <Property Name="JobRequirementDate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobRequirementID" Type="int" Nullable="false" />
+    <Property Name="JobRequirementDetails" Type="nvarchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobRequirementsTable">
+    <Key>
+      <PropertyRef Name="JobRequirementID" />
+    </Key>
+    <Property Name="JobRequirementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobRequirementTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PostJobID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="JobStatusTable">
     <Key>
       <PropertyRef Name="JobStatusID" />
     </Key>
     <Property Name="JobStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="JobStatus" Type="nvarchar" MaxLength="150" Nullable="false" />
-  </EntityType>
-  <EntityType Name="JobTable">
-    <Key>
-      <PropertyRef Name="JobID" />
-    </Key>
-    <Property Name="JobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="JobCategoryID" Type="int" Nullable="false" />
-    <Property Name="JobTitle" Type="nvarchar" MaxLength="1000" Nullable="false" />
-    <Property Name="JobRequirements" Type="nvarchar" MaxLength="3000" Nullable="false" />
-    <Property Name="JobDetails" Type="nvarchar" MaxLength="3000" Nullable="false" />
+    <Property Name="StatusMessage" Type="nvarchar" MaxLength="2000" />
   </EntityType>
   <EntityType Name="LanguageTable">
     <Key>
@@ -157,19 +148,19 @@
     <Property Name="PostJobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="CompanyID" Type="int" Nullable="false" />
-    <Property Name="JobID" Type="int" Nullable="false" />
-    <Property Name="RequiredPerson" Type="int" Nullable="false" />
-    <Property Name="Qualification" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="MinimumExperience" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="AgeLimit" Type="int" Nullable="false" />
-    <Property Name="MarriedStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="StartDate" Type="date" Nullable="false" />
-    <Property Name="EndDate" Type="date" Nullable="false" />
-    <Property Name="ShortlistDate" Type="date" Nullable="false" />
-    <Property Name="InterviewDate" Type="date" Nullable="false" />
-    <Property Name="JobStatusID" Type="int" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="2000" Nullable="false" />
     <Property Name="JobCategoryID" Type="int" Nullable="false" />
+    <Property Name="JobTitle" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="JobDescription" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="MinSalary" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaxSalary" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Vacancy" Type="int" Nullable="false" />
+    <Property Name="JobNatureID" Type="int" Nullable="false" />
+    <Property Name="PostDate" Type="date" Nullable="false" />
+    <Property Name="ApplicationLastDate" Type="date" Nullable="false" />
+    <Property Name="LastDate" Type="date" Nullable="false" />
+    <Property Name="JobRequirementsID" Type="int" Nullable="false" />
+    <Property Name="JobStatusID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SkillTable">
     <Key>
@@ -271,18 +262,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EmployeeTable_CurrentJobStatusTable">
-    <End Role="CurrentJobStatusTable" Type="Self.CurrentJobStatusTable" Multiplicity="1" />
-    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CurrentJobStatusTable">
-        <PropertyRef Name="CurrentJobStatusID" />
-      </Principal>
-      <Dependent Role="EmployeeTable">
-        <PropertyRef Name="CurrentJobStatusID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_EmployeeTable_JobCategoryTable">
     <End Role="JobCategoryTable" Type="Self.JobCategoryTable" Multiplicity="1" />
     <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="*" />
@@ -304,18 +283,6 @@
       </Principal>
       <Dependent Role="EmployeeTable">
         <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EventTable_CompanyTable">
-    <End Role="CompanyTable" Type="Self.CompanyTable" Multiplicity="1" />
-    <End Role="EventTable" Type="Self.EventTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CompanyTable">
-        <PropertyRef Name="CompanyID" />
-      </Principal>
-      <Dependent Role="EventTable">
-        <PropertyRef Name="CompanyID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -355,15 +322,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JobTable_JobCategoryTable">
-    <End Role="JobCategoryTable" Type="Self.JobCategoryTable" Multiplicity="1" />
-    <End Role="JobTable" Type="Self.JobTable" Multiplicity="*" />
+  <Association Name="FK_JobRequirementDetailTable_JobRequirementsTable">
+    <End Role="JobRequirementsTable" Type="Self.JobRequirementsTable" Multiplicity="1" />
+    <End Role="JobRequirementDetailTable" Type="Self.JobRequirementDetailTable" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="JobCategoryTable">
-        <PropertyRef Name="JobCategoryID" />
+      <Principal Role="JobRequirementsTable">
+        <PropertyRef Name="JobRequirementID" />
       </Principal>
-      <Dependent Role="JobTable">
-        <PropertyRef Name="JobCategoryID" />
+      <Dependent Role="JobRequirementDetailTable">
+        <PropertyRef Name="JobRequirementID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -400,6 +367,42 @@
       </Principal>
       <Dependent Role="PostJobTable">
         <PropertyRef Name="JobCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostJobTable_JobNatureTable">
+    <End Role="JobNatureTable" Type="Self.JobNatureTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobNatureTable">
+        <PropertyRef Name="JobNatureID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="JobNatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostJobTable_JobRequirementDetailTable">
+    <End Role="JobRequirementDetailTable" Type="Self.JobRequirementDetailTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRequirementDetailTable">
+        <PropertyRef Name="JobRequirementDate" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="JobRequirementsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostJobTable_JobRequirementsTable">
+    <End Role="JobRequirementsTable" Type="Self.JobRequirementsTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRequirementsTable">
+        <PropertyRef Name="JobRequirementID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="JobRequirementsID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -492,15 +495,15 @@
     <EntitySet Name="CertificateTable" EntityType="Self.CertificateTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompanyTable" EntityType="Self.CompanyTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CountryTable" EntityType="Self.CountryTable" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CurrentJobStatusTable" EntityType="Self.CurrentJobStatusTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EducationTable" EntityType="Self.EducationTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeTable" EntityType="Self.EmployeeTable" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="EventTable" EntityType="Self.EventTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplysTable" EntityType="Self.JobApplysTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobApplyStatusTable" EntityType="Self.JobApplyStatusTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobCategoryTable" EntityType="Self.JobCategoryTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobNatureTable" EntityType="Self.JobNatureTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobRequirementDetailTable" EntityType="Self.JobRequirementDetailTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobRequirementsTable" EntityType="Self.JobRequirementsTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobStatusTable" EntityType="Self.JobStatusTable" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="JobTable" EntityType="Self.JobTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LanguageTable" EntityType="Self.LanguageTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PostJobTable" EntityType="Self.PostJobTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SkillTable" EntityType="Self.SkillTable" Schema="dbo" store:Type="Tables" />
@@ -527,10 +530,6 @@
       <End Role="CountryTable" EntitySet="CountryTable" />
       <End Role="EmployeeTable" EntitySet="EmployeeTable" />
     </AssociationSet>
-    <AssociationSet Name="FK_EmployeeTable_CurrentJobStatusTable" Association="Self.FK_EmployeeTable_CurrentJobStatusTable">
-      <End Role="CurrentJobStatusTable" EntitySet="CurrentJobStatusTable" />
-      <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-    </AssociationSet>
     <AssociationSet Name="FK_EmployeeTable_JobCategoryTable" Association="Self.FK_EmployeeTable_JobCategoryTable">
       <End Role="JobCategoryTable" EntitySet="JobCategoryTable" />
       <End Role="EmployeeTable" EntitySet="EmployeeTable" />
@@ -538,10 +537,6 @@
     <AssociationSet Name="FK_EmployeeTable_UserTable" Association="Self.FK_EmployeeTable_UserTable">
       <End Role="UserTable" EntitySet="UserTable" />
       <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventTable_CompanyTable" Association="Self.FK_EventTable_CompanyTable">
-      <End Role="CompanyTable" EntitySet="CompanyTable" />
-      <End Role="EventTable" EntitySet="EventTable" />
     </AssociationSet>
     <AssociationSet Name="FK_JobApplysTable_EmployeeTable1" Association="Self.FK_JobApplysTable_EmployeeTable1">
       <End Role="EmployeeTable" EntitySet="EmployeeTable" />
@@ -555,9 +550,9 @@
       <End Role="PostJobTable" EntitySet="PostJobTable" />
       <End Role="JobApplysTable" EntitySet="JobApplysTable" />
     </AssociationSet>
-    <AssociationSet Name="FK_JobTable_JobCategoryTable" Association="Self.FK_JobTable_JobCategoryTable">
-      <End Role="JobCategoryTable" EntitySet="JobCategoryTable" />
-      <End Role="JobTable" EntitySet="JobTable" />
+    <AssociationSet Name="FK_JobRequirementDetailTable_JobRequirementsTable" Association="Self.FK_JobRequirementDetailTable_JobRequirementsTable">
+      <End Role="JobRequirementsTable" EntitySet="JobRequirementsTable" />
+      <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTable" />
     </AssociationSet>
     <AssociationSet Name="FK_LanguageTable_EmployeeTable" Association="Self.FK_LanguageTable_EmployeeTable">
       <End Role="EmployeeTable" EntitySet="EmployeeTable" />
@@ -569,6 +564,18 @@
     </AssociationSet>
     <AssociationSet Name="FK_PostJobTable_JobCategoryTable" Association="Self.FK_PostJobTable_JobCategoryTable">
       <End Role="JobCategoryTable" EntitySet="JobCategoryTable" />
+      <End Role="PostJobTable" EntitySet="PostJobTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostJobTable_JobNatureTable" Association="Self.FK_PostJobTable_JobNatureTable">
+      <End Role="JobNatureTable" EntitySet="JobNatureTable" />
+      <End Role="PostJobTable" EntitySet="PostJobTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostJobTable_JobRequirementDetailTable" Association="Self.FK_PostJobTable_JobRequirementDetailTable">
+      <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTable" />
+      <End Role="PostJobTable" EntitySet="PostJobTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostJobTable_JobRequirementsTable" Association="Self.FK_PostJobTable_JobRequirementsTable">
+      <End Role="JobRequirementsTable" EntitySet="JobRequirementsTable" />
       <End Role="PostJobTable" EntitySet="PostJobTable" />
     </AssociationSet>
     <AssociationSet Name="FK_PostJobTable_JobStatusTable" Association="Self.FK_PostJobTable_JobStatusTable">

@@ -4,35 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="465ba332ac104dda93be0bdf47c60fda" Name="Diagram1">
-        <EntityTypeShape EntityType="JobSeacrhDbModel.AccountStatusTable" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+      <Diagram DiagramId="3a1bc8504d9d48aaa85abf8d962c364b" Name="Diagram1">
+        <EntityTypeShape EntityType="JobSeacrhDbModel.AccountStatusTable" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.CertificateTable" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.CompanyTable" Width="1.5" PointX="6.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.CompanyTable" Width="1.5" PointX="6.75" PointY="21.125" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.CountryTable" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.CurrentJobStatusTable" Width="1.5" PointX="3.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.EducationTable" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.EmployeeTable" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.EventTable" Width="1.5" PointX="9" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.EmployeeTable" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.JobApplysTable" Width="1.5" PointX="11.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.JobApplyStatusTable" Width="1.5" PointX="9" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.JobCategoryTable" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.JobStatusTable" Width="1.5" PointX="6.75" PointY="23.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.JobTable" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.JobApplyStatusTable" Width="1.5" PointX="9" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.JobCategoryTable" Width="1.5" PointX="3.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.JobNatureTable" Width="1.5" PointX="6.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.JobRequirementDetailTable" Width="1.5" PointX="6.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.JobRequirementsTable" Width="1.5" PointX="4.5" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.JobStatusTable" Width="1.5" PointX="6.75" PointY="29.875" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.LanguageTable" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.PostJobTable" Width="1.5" PointX="9" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.PostJobTable" Width="1.5" PointX="9" PointY="23.625" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.SkillTable" Width="1.5" PointX="8.25" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.UserTable" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JobSeacrhDbModel.UserTypeTable" Width="1.5" PointX="1.5" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.UserTable" Width="1.5" PointX="3.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobSeacrhDbModel.UserTypeTable" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="JobSeacrhDbModel.WorkExperienceTable" Width="1.5" PointX="11.25" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_UserTable_AccountStatusTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_CertificateTable_EmployeeTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_CompanyTable_UserTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JobSeacrhDbModel.FK_EventTable_CompanyTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_CompanyTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_EducationTable_CountryTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_EmployeeTable_CountryTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_WorkExperienceTable_CountryTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JobSeacrhDbModel.FK_EmployeeTable_CurrentJobStatusTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_EducationTable_EmployeeTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_EmployeeTable_JobCategoryTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_EmployeeTable_UserTable" ManuallyRouted="false" />
@@ -42,8 +40,11 @@
         <AssociationConnector Association="JobSeacrhDbModel.FK_WorkExperienceTable_EmployeeTable1" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_JobApplysTable_JobApplyStatusTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_JobApplysTable_PostJobTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JobSeacrhDbModel.FK_JobTable_JobCategoryTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_JobCategoryTable" ManuallyRouted="false" />
+        <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_JobNatureTable" ManuallyRouted="false" />
+        <AssociationConnector Association="JobSeacrhDbModel.FK_JobRequirementDetailTable_JobRequirementsTable" ManuallyRouted="false" />
+        <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_JobRequirementDetailTable" ManuallyRouted="false" />
+        <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_JobRequirementsTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_JobStatusTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_PostJobTable_UserTable" ManuallyRouted="false" />
         <AssociationConnector Association="JobSeacrhDbModel.FK_UserTypeTable_UserTable" ManuallyRouted="false" />

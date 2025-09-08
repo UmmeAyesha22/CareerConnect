@@ -1,33 +1,36 @@
 ﻿@model IEnumerable<DatabaseLayer.CountryTable>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Countries";
 }
 
-<h2>Index</h2>
+<div class="section-top-border col-md-10">
+    <h3 class="mb-30">All Countries @Html.ActionLink("New Country", "Create", null, new { @class = "btn btn-default" ,@style="float:right" })</h3>
+    <div class="progress-table-wrap">
+        <div class="progress-table">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table tble-hover">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th></th>
-    </tr>
+            <div class="table-head">
+                <div class="serial">#</div>
+                <div class="country">Country</div>
+                <div class="country">Action</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CountryID }, new { @class= "genric-btn primary" }) 
-            @Html.ActionLink("Details", "Details", new { id=item.CountryID }, new { @class = "genric-btn info" }) 
-            @Html.ActionLink("Delete", "Delete", new { id=item.CountryID }, new { @class = "genric-btn danger" })
-        </td>
-    </tr>
-}
+            </div>
 
-</table>
+            @foreach (var item in Model)
+            {
+
+                <div class="table-row">
+                    <div class="serial">01</div>
+                    <div class="country">  @Html.DisplayFor(modelItem => item.Country)</div>
+                    <div class="country">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CountryID }, new { @class = "genric-btn primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CountryID }, new { @class = "genric-btn danger" })
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

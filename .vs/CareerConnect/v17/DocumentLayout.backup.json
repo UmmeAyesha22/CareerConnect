@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "F:\\Career Connect\\Application\\CareerConnect\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|F:\\Career Connect\\Application\\CareerConnect\\careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|f:\\career connect\\application\\careerconnect\\careerconnect\\views\\countrytables\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\views\\countrytables\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|f:\\career connect\\application\\careerconnect\\careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|f:\\career connect\\application\\careerconnect\\careerconnect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|F:\\Career Connect\\Application\\CareerConnect\\careerconnect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +34,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "F:\\Career Connect\\Application\\CareerConnect\\CareerConnect\\Views\\CountryTables\\Edit.cshtml",
               "RelativeDocumentMoniker": "CareerConnect\\Views\\CountryTables\\Edit.cshtml",
               "ToolTip": "F:\\Career Connect\\Application\\CareerConnect\\CareerConnect\\Views\\CountryTables\\Edit.cshtml",
               "RelativeToolTip": "CareerConnect\\Views\\CountryTables\\Edit.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-09-07T11:27:53.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\Career Connect\\Application\\CareerConnect\\CareerConnect\\Views\\CountryTables\\Index.cshtml",
               "RelativeDocumentMoniker": "CareerConnect\\Views\\CountryTables\\Index.cshtml",
@@ -68,8 +68,7 @@
               "RelativeToolTip": "CareerConnect\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-02T16:21:01.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T16:21:01.994Z"
             },
             {
               "$type": "Document",
@@ -81,8 +80,7 @@
               "RelativeToolTip": "CareerConnect\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAALkBAAAAAAAAAAAAABkAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-02T04:46:57.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T04:46:57.147Z"
             }
           ]
         }

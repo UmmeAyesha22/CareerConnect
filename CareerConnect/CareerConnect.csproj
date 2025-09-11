@@ -276,9 +276,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobCategoryTablesController.cs" />
     <Compile Include="Controllers\JobNatureTablesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyMV.cs" />
+    <Compile Include="Models\UserMV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -366,6 +369,7 @@
     <Content Include="Views\JobNatureTables\Create.cshtml" />
     <Content Include="Views\JobNatureTables\Edit.cshtml" />
     <Content Include="Views\JobNatureTables\Index.cshtml" />
+    <Content Include="Views\User\NewUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -375,7 +379,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">

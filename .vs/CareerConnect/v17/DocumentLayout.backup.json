@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "F:\\Career Connect\\Application\\CareerConnect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|F:\\Career Connect\\Application\\CareerConnect\\careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|f:\\career connect\\application\\careerconnect\\careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\views\\countrytables\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|f:\\career connect\\application\\careerconnect\\careerconnect\\views\\countrytables\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|F:\\Career Connect\\Application\\CareerConnect\\careerconnect\\views\\countrytables\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{45F62CF1-6FBF-44D6-BF27-0DCB44D15D8F}|CareerConnect\\CareerConnect.csproj|solutionrelative:careerconnect\\views\\countrytables\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -42,8 +42,7 @@
               "RelativeToolTip": "CareerConnect\\Views\\CountryTables\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-07T11:27:53.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T11:27:53.877Z"
             },
             {
               "$type": "Document",

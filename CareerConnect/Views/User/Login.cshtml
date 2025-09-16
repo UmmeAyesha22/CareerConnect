@@ -1,0 +1,47 @@
+﻿@model CareerConnect.Models.LoginMV
+@{
+    ViewBag.Title = "Login";
+}
+
+<section class="login-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <h2 class="text-center mb-4">Login</h2>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                }
+
+                @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-login" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName)
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter User Name" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password)
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Enter Password" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group text-center mt-3">
+                        <input type="submit" value="Login" class="btn btn-primary btn-block" />
+                    </div>
+                }
+
+                <!-- Place the register link outside the form -->
+                <div class="text-center mt-3">
+                    <p>Don't have an account? <a href="@Url.Action("NewUser", "User")">Register</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

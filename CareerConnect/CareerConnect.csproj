@@ -175,6 +175,7 @@
     <Content Include="Content\assets\img\icon\job-list2.png" />
     <Content Include="Content\assets\img\icon\job-list3.png" />
     <Content Include="Content\assets\img\icon\job-list4.png" />
+    <Content Include="Content\assets\img\logo\cn_logo.png" />
     <Content Include="Content\assets\img\logo\form-iocn.jpg" />
     <Content Include="Content\assets\img\logo\loder.jpg" />
     <Content Include="Content\assets\img\logo\logo.png" />
@@ -274,9 +275,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CountryTablesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobCategoryTablesController.cs" />
+    <Compile Include="Controllers\JobNatureTablesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyMV.cs" />
+    <Compile Include="Models\LoginMV.cs" />
+    <Compile Include="Models\UserMV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -348,8 +355,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\CountryTables\Create.cshtml" />
-    <Content Include="Views\CountryTables\Delete.cshtml" />
-    <Content Include="Views\CountryTables\Details.cshtml" />
     <Content Include="Views\CountryTables\Edit.cshtml" />
     <Content Include="Views\CountryTables\Index.cshtml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -359,6 +364,16 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\JobCategoryTables\Create.cshtml" />
+    <Content Include="Views\JobCategoryTables\Edit.cshtml" />
+    <Content Include="Views\JobCategoryTables\Index.cshtml" />
+    <Content Include="Views\CountryTables\Delete.cshtml" />
+    <Content Include="Views\JobNatureTables\Create.cshtml" />
+    <Content Include="Views\JobNatureTables\Edit.cshtml" />
+    <Content Include="Views\JobNatureTables\Index.cshtml" />
+    <Content Include="Views\User\NewUser.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Dashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -368,7 +383,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">

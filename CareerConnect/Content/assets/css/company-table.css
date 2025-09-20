@@ -1,0 +1,189 @@
+﻿/* ================================================
+   BODY / BASE STYLES - LIGHT UNICORN THEME
+   ================================================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #F8F4FF 0%, #E8D7FF 50%, #D6C2FF 100%);
+    color: #1e293b;
+    min-height: 100vh;
+    position: relative;
+}
+
+    /* Optional floating shapes behind content for decoration */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 80%, rgba(232, 215, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(214, 194, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(248, 244, 255, 0.1) 0%, transparent 50%);
+        z-index: -1;
+        animation: float 20s ease-in-out infinite;
+    }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-20px) rotate(1deg);
+    }
+
+    66% {
+        transform: translateY(-10px) rotate(-1deg);
+    }
+}
+
+
+/* ================================================
+   COMPANIES TABLE - PROFESSIONAL LIGHT UNICORN STYLE
+   ================================================ */
+:root {
+    --primary-blue: #60a5fa;
+    --secondary-blue: #93c5fd;
+    --accent-purple: #7C3AED;
+    --text-dark: #1e293b;
+    --table-bg: rgba(248, 244, 255, 0.6);
+    --table-hover: rgba(96, 165, 250, 0.1);
+    --btn-hover-shadow: rgba(96, 165, 250, 0.3);
+}
+
+/* Container */
+.companies-container {
+    padding: 2rem;
+    background: linear-gradient(135deg, #F8F4FF 0%, #E8D7FF 50%, #D6C2FF 100%);
+    min-height: 80vh;
+}
+
+/* Title */
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.companies-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: var(--table-bg);
+}
+
+    .companies-table th,
+    .companies-table td {
+        padding: 1rem;
+        text-align: left;
+        color: var(--text-dark);
+        font-size: 0.95rem;
+        vertical-align: middle;
+    }
+
+    .companies-table thead {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        color: #fff;
+    }
+
+    .companies-table tbody tr {
+        transition: background 0.3s ease;
+    }
+
+        .companies-table tbody tr:hover {
+            background: var(--table-hover);
+        }
+
+/* Logo */
+.company-logo {
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Actions Column */
+.actions-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Buttons */
+/* ================================================
+   PROFESSIONAL EDIT & DELETE BUTTONS - THICKER
+   ================================================ */
+.btn-edit,
+.btn-delete {
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.95rem; /* slightly larger text */
+    padding: 0.6rem 1.2rem; /* thicker button */
+    min-width: 80px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Edit Button - Purple */
+.btn-edit {
+    background: var(--accent-purple);
+    color: #fff;
+}
+
+    .btn-edit:hover {
+        background: #6d28d9;
+        box-shadow: 0 8px 20px var(--btn-hover-shadow);
+    }
+
+/* Delete Button - Red */
+.btn-delete {
+    background: #ef4444;
+    color: #fff;
+}
+
+    .btn-delete:hover {
+        background: #dc2626;
+        box-shadow: 0 8px 20px rgba(239,68,68,0.3);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .companies-container {
+        padding: 1rem;
+    }
+
+    .companies-table th,
+    .companies-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .actions-col {
+        flex-direction: column;
+    }
+
+    .btn-edit, .btn-delete {
+        width: 100%;
+    }
+}
+

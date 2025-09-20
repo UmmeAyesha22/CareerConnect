@@ -1,17 +1,11 @@
-﻿
-@model DatabaseLayer.JobApplysTable
+﻿@model DatabaseLayer.JobApplysTable
 @{
     ViewBag.Title = "Home";
 }
 
-<!-- Optional welcome message -->
-<div class="container mt-4 text-center">
-    @if (Session["UserName"] != null)
-    {
-        <h2>Welcome, @Session["UserName"] </h2>
-    }
-</div>
-
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/Landing.css" />
+}
 <!-- Slider Area Start-->
 <div class="slider-area">
     <div class="slider-active">
@@ -35,20 +29,28 @@
                                 <div class="select-itms">
                                     <select name="select" id="select1">
                                         <option value="">Location BD</option>
-                                        <option value="">Location PK</option>
+
                                         <option value="">Location US</option>
                                         <option value="">Location UK</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="search-form">
-                                <a href="#">Find job</a>
+                                <a href="@Url.Action("JobApplications", "JobApplication")" class="btn btn-info">Find job</a>
+
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Optional welcome message -->
+    <div class="container mt-4 text-center">
+        @if (Session["UserName"] != null)
+        {
+            <h2>Welcome, @Session["UserName"] </h2>
+        }
     </div>
 </div>
 <!-- Slider Area End-->

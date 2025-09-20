@@ -1,8 +1,4 @@
 ﻿using DatabaseLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CareerConnect.Controllers
@@ -10,28 +6,42 @@ namespace CareerConnect.Controllers
     public class HomeController : Controller
     {
         private JobSeacrhDbEntities db = new JobSeacrhDbEntities();
+
         // GET: Home
         public ActionResult Index()
         {
             return View();
         }
 
-    
-    //public ActionResult Dashboard()
-    //    {
-    //        int userType = Session["UserType"] != null ? (int)Session["UserType"] : 0;
-    //        int userId = Session["UserID"] != null ? (int)Session["UserID"] : 0;
+        public ActionResult About()
+        {
+            return View();
+        }
 
-    //        if (userType == 2) // Job Provider
-    //        {
-    //            var myJobs = db.PostJobTables.Where(j => j.UserID == userId).ToList();
-    //            ViewBag.MyJobs = myJobs;
-    //        }
+        public ActionResult Contact()
+        {
+            return View(); // Views/Home/Contact.cshtml
+        }
 
-    //        ViewBag.UserType = userType;
-    //        return View();
-    //    }
+        // ✅ Extra methods for navigation menu
+        public ActionResult Blog()
+        {
+            return View(); // Views/Home/Blog.cshtml
+        }
 
+        public ActionResult BlogDetails()
+        {
+            return View(); // Views/Home/BlogDetails.cshtml
+        }
 
+        public ActionResult Elements()
+        {
+            return View(); // Views/Home/Elements.cshtml
+        }
+
+        public ActionResult JobDetails()
+        {
+            return View(); // Views/Home/JobDetails.cshtml
+        }
     }
 }

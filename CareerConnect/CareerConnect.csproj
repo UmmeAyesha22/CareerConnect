@@ -95,14 +95,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\About.css" />
     <Content Include="Content\assets\css\animate.min.css" />
     <Content Include="Content\assets\css\applied-jobs.css" />
+    <Content Include="Content\assets\css\apply-job.css" />
     <Content Include="Content\assets\css\available-jobs.css" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\company-create.css" />
+    <Content Include="Content\assets\css\company-delete.css" />
+    <Content Include="Content\assets\css\company-table.css" />
+    <Content Include="Content\assets\css\country-delete.css" />
+    <Content Include="Content\assets\css\country-edit.css" />
+    <Content Include="Content\assets\css\country-index.css" />
+    <Content Include="Content\assets\css\edit-company.css" />
     <Content Include="Content\assets\css\delete-job.css" />
     <Content Include="Content\assets\css\EditJob.css" />
     <Content Include="Content\assets\css\flaticon.css" />
     <Content Include="Content\assets\css\fontawesome-all.min.css" />
+    <Content Include="Content\assets\css\Landing.css" />
     <Content Include="Content\assets\css\login.css" />
     <Content Include="Content\assets\css\magnific-popup.css" />
     <Content Include="Content\assets\css\nice-select.css" />
@@ -404,6 +414,9 @@
     <Content Include="Views\JobApplication\Apply.cshtml" />
     <Content Include="Views\JobApplication\JobApplications.cshtml" />
     <Content Include="Views\JobApplication\AppliedJobs.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

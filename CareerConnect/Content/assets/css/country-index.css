@@ -1,0 +1,80 @@
+﻿/* Container */
+.container {
+    max-width: 1200px;
+}
+
+/* Header / Filter Card */
+.filter-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 20px 30px;
+}
+
+/* Header Title */
+.filter-title {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(108, 99, 255, 0.05);
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+}
+
+/* Buttons */
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, #6c63ff, #3f3dff);
+    border: none;
+    border-radius: 8px; /* slightly larger corners */
+    padding: 10px 20px; /* thicker / bigger buttons */
+    font-weight: 600; /* bolder text */
+    font-size: 0.95rem; /* slightly larger font */
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #7d6cff, #4e4dff);
+    }
+
+.btn-danger {
+    background: linear-gradient(90deg, #ff4b5c, #ff0000);
+    border: none;
+    border-radius: 8px; /* slightly larger corners */
+    padding: 10px 20px; /* thicker / bigger buttons */
+    font-weight: 600; /* bolder text */
+    font-size: 0.95rem; /* slightly larger font */
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background: linear-gradient(90deg, #ff5a6f, #ff1a1a);
+    }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filter-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}

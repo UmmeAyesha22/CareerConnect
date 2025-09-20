@@ -4,43 +4,73 @@
     bool alreadyApplied = ViewBag.AlreadyApplied != null && (bool)ViewBag.AlreadyApplied;
 }
 
-<h2>Apply for: @ViewBag.JobTitle</h2>
-
-@if (alreadyApplied)
-{
-    <div class="alert alert-info">
-        You have already applied. <strong>Status:</strong> @ViewBag.Status
-    </div>
-
-    <div class="form-group mt-2">
-        <a href="@Url.Action("AppliedJobs", "JobApplication")" class="btn btn-primary">
-            View My Applications
-        </a>
-    </div>
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/apply-job.css" />
 }
-else
-{
-    using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.PostJobID)
-        @Html.HiddenFor(m => m.EmployeeID)
 
-        <div class="form-group mb-3">
-            @Html.LabelFor(m => m.JobApplyStatusUpdateReason, "Why should you be considered?")
-            @Html.TextAreaFor(m => m.JobApplyStatusUpdateReason, new { @class = "form-control", rows = 5, placeholder = "Type your reason here..." })
-            @Html.ValidationMessageFor(m => m.JobApplyStatusUpdateReason, "", new { @class = "text-danger" })
+<div class="apply-job-container">
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <div class="container px-4 py-5">
+        <div class="page-header text-center mb-5">
+            <div class="header-icon mb-3">
+                <i class="fas fa-file-alt fa-3x"></i>
+            </div>
+            <h1 class="page-title">Apply for: @ViewBag.JobTitle</h1>
+            <p class="page-subtitle">Submit your application below</p>
         </div>
 
-        <div class="form-group">
-            <input type="submit" value="Apply" class="btn btn-primary" />
-        </div>
-    }
-}
+        <div class="form-card shadow-sm p-4 rounded">
+            @if (alreadyApplied)
+            {
+                <div class="alert alert-info">
+                    You have already applied. <strong>Status:</strong> @ViewBag.Status
+                </div>
+                <div class="d-flex justify-content-start mt-3">
+                    <a href="@Url.Action("AppliedJobs", "JobApplication")" class="btn btn-primary">
+                        View My Applications
+                    </a>
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.PostJobID)
+                    @Html.HiddenFor(m => m.EmployeeID)
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success mt-2">
-        @TempData["SuccessMessage"]
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.JobApplyStatusUpdateReason, "Why should you be considered?", new { @class = "form-label fw-semibold" })
+                        @Html.TextAreaFor(m => m.JobApplyStatusUpdateReason, new { @class = "form-control", rows = 5, placeholder = "Type your reason here..." })
+                        @Html.ValidationMessageFor(m => m.JobApplyStatusUpdateReason, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*<div class="d-flex justify-content-end">
+                        <input type="submit" value="Apply" class="btn btn-primary" />
+                    </div>*@
+                    <div class="d-flex justify-content-end" style="gap:10px;">
+                        <input type="submit" value="Apply" class="btn btn-primary" />
+                        <a href="@Url.Action("AppliedJobs", "JobApplication")" class="btn btn-secondary">
+                            Cancel
+                        </a>
+                    </div>
+
+                }
+            }
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success mt-3">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+        </div>
     </div>
-}
+</div>

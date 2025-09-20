@@ -1,0 +1,257 @@
+﻿/* ================================================
+   CAREERCONNECT - EDIT COMPANY PAGE STYLES
+   Light Unicorn / Light Sky Blue Theme
+   ================================================ */
+
+/* ========================
+   ROOT VARIABLES
+   ======================== */
+:root {
+    --primary-blue: #60a5fa;
+    --secondary-blue: #93c5fd;
+    --accent-purple: #7C3AED;
+    --text-dark: #1e293b;
+    --form-bg: rgba(255, 255, 255, 0.85);
+    --form-shadow: rgba(0, 0, 0, 0.1);
+    --input-bg: rgba(248, 244, 255, 0.5);
+    --input-border: rgba(232, 215, 255, 0.4);
+    --btn-hover-shadow: rgba(96, 165, 250, 0.3);
+    --success-color: #10B981;
+    --error-color: #EF4444;
+}
+
+/* ========================
+   BODY
+   ======================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #F8F4FF 0%, #E8D7FF 50%, #D6C2FF 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+}
+
+    /* Optional background shapes */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 80%, rgba(232, 215, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(214, 194, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(248, 244, 255, 0.1) 0%, transparent 50%);
+        z-index: -1;
+        animation: float 20s ease-in-out infinite;
+    }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-20px) rotate(1deg);
+    }
+
+    66% {
+        transform: translateY(-10px) rotate(-1deg);
+    }
+}
+
+/* ========================
+   PAGE TITLE
+   ======================== */
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* ========================
+   FORM CONTAINER
+   ======================== */
+form {
+    background: var(--form-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px var(--form-shadow);
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    backdrop-filter: blur(10px);
+}
+
+/* ========================
+   FORM GROUPS
+   ======================== */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+label, .form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+/* ========================
+   INPUTS & TEXTAREAS
+   ======================== */
+input.form-control,
+textarea.form-control {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    border-radius: 16px;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+    input.form-control:focus,
+    textarea.form-control:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+        outline: none;
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+    }
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ========================
+   FILE UPLOAD
+   ======================== */
+input[type="file"] {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 16px;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    input[type="file"]:hover {
+        border-color: var(--primary-blue);
+    }
+
+/* ========================
+   BUTTONS
+   ======================== */
+/* Update / Save Button */
+.btn-save {
+    background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.95rem 2rem;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+    .btn-save::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.25);
+        transition: left 0.5s ease;
+    }
+
+    .btn-save:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(96, 165, 250, 0.3);
+    }
+
+        .btn-save:hover::before {
+            left: 100%;
+        }
+
+    .btn-save:active {
+        transform: translateY(-1px);
+    }
+
+    .btn-save:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+/* Cancel Button */
+.btn-cancel {
+    background: linear-gradient(135deg, #e0e7ff 0%, #f3f4ff 100%);
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.95rem 2rem;
+    border: 2px solid #93c5fd;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: inline-block;
+}
+
+    .btn-cancel:hover {
+        background: #93c5fd;
+        color: #fff;
+        box-shadow: 0 10px 25px rgba(147,197,253,0.3);
+    }
+
+    .btn-cancel:active {
+        transform: translateY(-1px);
+    }
+
+    .btn-cancel:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 768px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    input.form-control, textarea.form-control {
+        padding: 0.85rem 1rem;
+    }
+
+    .btn-save, .btn-cancel {
+        font-size: 1rem;
+        padding: 0.85rem 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    form {
+        padding: 1rem;
+    }
+
+    .btn-save, .btn-cancel {
+        width: 100%;
+    }
+}

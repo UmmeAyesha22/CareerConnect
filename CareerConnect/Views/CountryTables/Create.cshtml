@@ -4,6 +4,10 @@
     ViewBag.Title = "New";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/company-create.css" />
+}
+
 <div class="section-top-border">
     <div class="row">
         <div class="col-lg-6 col-md-6">
@@ -16,7 +20,7 @@
 
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-              
+
                 <div class="mt-4">
 
                     @Html.EditorFor(model => model.Country, new
@@ -52,3 +56,4 @@
         </div>
     </div>
 </div>
+

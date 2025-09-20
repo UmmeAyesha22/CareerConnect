@@ -1,52 +1,56 @@
 ﻿@model DatabaseLayer.CountryTable
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Country";
 }
 
-<div class="section-top-border">
-    <div class="row">
-        <div class="col-lg-6 col-md-6">
-            <h3 class="mb-30">Edit Country </h3>
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/country-edit.css" />
+}
 
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+<div class="jobs-container">
+    <!-- Decorative background shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-               
-                   
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="col-lg-6">
+            <!-- Edit Country Card -->
+            <div class="job-card">
+                <h3 class="job-title text-center mb-4">Edit Country</h3>
 
-                <div class="mt-4">
-                    
-                       @Html.EditorFor(model => model.Country, new { htmlAttributes = new
-                  {
-                      @class = "form-control single-input",
-                      @type = "text",
-                      @name = "first_name",
-                      @placeholder = "Enter Country",
-                      @onfocus = "this.placeholder = ''",
-                      @onblur = "this.placeholder = 'First Name'",
-                      @required = "true"
-                  }
-                  })
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger text-center mb-3" })
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Country, new { @class = "form-label fw-semibold" })
+                        @Html.EditorFor(model => model.Country, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                @type = "text",
+                                @placeholder = "Enter country name",
+                                @required = "true"
+                            }
+                        })
                         @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    </div>
 
-               
-                </div>
-
-                <hr />
-                <div class=" form-group mt-4">
-                    <input type="submit" value="Update" class="genric-btn primary e-large" style="float:right;"/>
-                    @Html.ActionLink("Back to List", "Index" ,null, new { @class="btn btn-default" , @style= "float:left;"})
-
-                </div>
-               
-            }
-
-            <div>
-                
-            </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-details" })
+                        <input type="submit" value="Update" class="btn btn-apply" />
+                    </div>
+                }
             </div>
         </div>
     </div>
+</div>
+
+

@@ -1,34 +1,43 @@
-﻿
-@model DatabaseLayer.CountryTable
+﻿@model DatabaseLayer.CountryTable
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete Country";
 }
 
-<h2>Delete</h2>
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/country-delete.css" />
+}
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CountryTable</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
+<div class="jobs-container">
+    <!-- Decorative background shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="col-lg-6">
+            <!-- Delete Confirmation Card -->
+            <div class="job-card text-center">
+                <h3 class="job-title mb-3">Delete Country</h3>
+                <p class="text-muted mb-4">Are you sure you want to delete this country?</p>
 
-    </dl>
+                <div class="mb-3">
+                    <h5 class="text-secondary">Country Name</h5>
+                    <p class="fw-bold">@Html.DisplayFor(model => model.Country)</p>
+                </div>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <input type="submit" value="Delete" class="btn btn-apply" />
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-details" })
+                    </div>
+                }
+            </div>
         </div>
-    }
+    </div>
 </div>

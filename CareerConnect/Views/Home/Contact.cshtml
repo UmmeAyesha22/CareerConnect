@@ -1,0 +1,239 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contact-container">
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="contact-header text-center">
+        <h1 class="contact-title">Get in Touch</h1>
+        <p class="contact-subtitle">We’d love to hear from you. Let us know how we can help!</p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-card">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <div class="info-label">Office</div>
+                    <div class="info-value">123 Business Street, Dhaka</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-card">
+                <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                <div>
+                    <div class="info-label">Phone</div>
+                    <div class="info-value">+880 123 456 789</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="contact-card">
+                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <div class="info-label">Email</div>
+                    <div class="info-value">support@careerconnect.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-wrapper">
+        <div class="contact-card p-4">
+            <h3 class="text-center mb-4">Send Us a Message</h3>
+            @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" name="Name" placeholder="Your Name"
+                               class="form-control rounded-pill" required autocomplete="name" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="email" name="Email" placeholder="Your Email"
+                               class="form-control rounded-pill" required autocomplete="email" />
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="text" name="Subject" placeholder="Subject"
+                               class="form-control rounded-pill" required autocomplete="organization-title" />
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <textarea name="Message" rows="6" placeholder="Your Message"
+                                  class="form-control rounded-4" required></textarea>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill fw-bold">
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Container & Background */
+    .contact-container {
+        background-color: #f8f9fa;
+        min-height: 100vh;
+        padding: 4rem 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bg-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.15;
+        background: linear-gradient(135deg,#0d6efd,#6c757d);
+    }
+
+    .shape-1 {
+        width: 150px;
+        height: 150px;
+        top: -40px;
+        left: -40px;
+    }
+
+    .shape-2 {
+        width: 100px;
+        height: 100px;
+        bottom: -20px;
+        right: -20px;
+    }
+
+    .shape-3 {
+        width: 80px;
+        height: 80px;
+        top: 200px;
+        right: -30px;
+    }
+
+    .shape-4 {
+        width: 120px;
+        height: 120px;
+        bottom: 150px;
+        left: -30px;
+    }
+
+    /* Header */
+    .contact-header {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .contact-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #212529;
+    }
+
+    .contact-subtitle {
+        color: #495057;
+        font-size: 1.1rem;
+    }
+
+    /* Cards */
+    .contact-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: #0d6efd;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1.2rem;
+    }
+
+    .info-label {
+        color: #6c757d;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .info-value {
+        color: #212529;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    /* Form */
+    .contact-form-wrapper {
+        max-width: 800px;
+        margin: 3rem auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-control {
+        padding: 12px 20px;
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.15);
+        }
+
+    textarea.form-control {
+        resize: none;
+    }
+
+    .btn-primary {
+        background: #0d6efd;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13,110,253,0.3);
+        }
+</style>

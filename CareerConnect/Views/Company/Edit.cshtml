@@ -3,6 +3,10 @@
     ViewBag.Title = "Edit Company";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/edit-company.css" />
+}
+
 <h2>Edit Company</h2>
 
 @using (Html.BeginForm("Edit", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))

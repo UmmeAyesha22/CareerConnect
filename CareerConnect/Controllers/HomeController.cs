@@ -16,21 +16,26 @@ namespace CareerConnect.Controllers
             return View();
         }
 
-    
-    //public ActionResult Dashboard()
-    //    {
-    //        int userType = Session["UserType"] != null ? (int)Session["UserType"] : 0;
-    //        int userId = Session["UserID"] != null ? (int)Session["UserID"] : 0;
+        public ActionResult About() => View();
+        public ActionResult Page() => View();
+        public ActionResult Contact() => View();
+        public ActionResult JobListing() => View();
 
-    //        if (userType == 2) // Job Provider
-    //        {
-    //            var myJobs = db.PostJobTables.Where(j => j.UserID == userId).ToList();
-    //            ViewBag.MyJobs = myJobs;
-    //        }
 
-    //        ViewBag.UserType = userType;
-    //        return View();
-    //    }
+        //public ActionResult Dashboard()
+        //    {
+        //        int userType = Session["UserType"] != null ? (int)Session["UserType"] : 0;
+        //        int userId = Session["UserID"] != null ? (int)Session["UserID"] : 0;
+
+        //        if (userType == 2) // Job Provider
+        //        {
+        //            var myJobs = db.PostJobTables.Where(j => j.UserID == userId).ToList();
+        //            ViewBag.MyJobs = myJobs;
+        //        }
+
+        //        ViewBag.UserType = userType;
+        //        return View();
+        //    }
 
 
     }

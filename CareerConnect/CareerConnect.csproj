@@ -97,6 +97,7 @@
   <ItemGroup>
     <Content Include="Content\assets\css\animate.min.css" />
     <Content Include="Content\assets\css\applied-jobs.css" />
+    <Content Include="Content\assets\css\apply-job.css" />
     <Content Include="Content\assets\css\available-jobs.css" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\delete-job.css" />
@@ -404,6 +405,9 @@
     <Content Include="Views\JobApplication\Apply.cshtml" />
     <Content Include="Views\JobApplication\JobApplications.cshtml" />
     <Content Include="Views\JobApplication\AppliedJobs.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

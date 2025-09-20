@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Hero Banner Start -->
+<section class="slider-area">
+    <div class="slider-active">
+        <div class="single-slider slider-height d-flex align-items-center" style="background-image: url('~/Content/assets/img/hero/job_banner.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-caption text-center">
+                            <h1>Find Your Dream Job</h1>
+                            <p>Thousands of jobs are waiting for you. Search and apply today!</p>
+                            <div class="hero-btn">
+                                <a href="@Url.Action("JobListing", "Home")" class="btn hero-btn1">Find a Job</a>
+                                <a href="@Url.Action("NewUser", "User")" class="btn hero-btn2">Post a Job</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Banner End -->
+<!-- Featured Jobs Start -->
+<section class="featured-job-area section-padding30">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8">
+                <div class="section-tittle text-center mb-70">
+                    <h2>Featured Jobs</h2>
+                    <p>Explore some of the top jobs available right now.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="featured-job-wrap">
+                    <div class="single-job-items mb-30">
+                        <div class="job-items">
+                            <div class="company-img">
+                                <a href="@Url.Action("JobDetails", "Home")"><img src="~/Content/assets/img/job/job1.png" alt=""></a>
+                            </div>
+                            <div class="job-tittle">
+                                <a href="@Url.Action("JobDetails", "Home")"><h4>Software Engineer</h4></a>
+                                <ul>
+                                    <li>Google</li>
+                                    <li><i class="fas fa-map-marker-alt"></i> New York</li>
+                                    <li>$120k - $150k</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="items-link f-right">
+                            <a href="@Url.Action("JobDetails", "Home")">Full Time</a>
+                            <span>5 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="single-job-items mb-30">
+                        <div class="job-items">
+                            <div class="company-img">
+                                <a href="@Url.Action("JobDetails", "Home")"><img src="~/Content/assets/img/job/job2.png" alt=""></a>
+                            </div>
+                            <div class="job-tittle">
+                                <a href="@Url.Action("JobDetails", "Home")"><h4>UI/UX Designer</h4></a>
+                                <ul>
+                                    <li>Facebook</li>
+                                    <li><i class="fas fa-map-marker-alt"></i> San Francisco</li>
+                                    <li>$90k - $120k</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="items-link f-right">
+                            <a href="@Url.Action("JobDetails", "Home")">Part Time</a>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+
+                    <div class="view-all text-center">
+                        <a href="@Url.Action("JobListing", "Home")" class="btn">View All Jobs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Featured Jobs End -->
+<!-- Call to Action Start -->
+<section class="apply-process-area apply-bg pt-150 pb-150" style="background-image: url('~/Content/assets/img/hero/apply_bg.jpg');">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="section-tittle text-center mb-70">
+                    <h2>Are You Looking For A Job?</h2>
+                    <p>Register today and apply to your dream jobs in minutes!</p>
+                    <a href="@Url.Action("NewUser", "User")" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Call to Action End -->
+<!-- About Us Start -->
+<section class="about-area section-padding2">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-img">
+                    <img src="~/Content/assets/img/gallery/about.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-caption">
+                    <div class="section-tittle mb-35">
+                        <h2>About CareerConnect</h2>
+                        <p>We help talented candidates find the best job opportunities across top companies. Our platform makes job searching easy and effective.</p>
+                    </div>
+                    <a href="@Url.Action("About", "Home")" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Us End -->

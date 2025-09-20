@@ -50,9 +50,12 @@
                                 </label>
                                 <select name="categoryId" class="form-select shadow-sm border rounded">
                                     <option value="">All Categories</option>
-                                    @foreach (var cat in categories)
+                                    @foreach (var cat in ViewBag.Categories as List<DatabaseLayer.JobCategoryTable>)
                                     {
-                                        <option value="@cat.JobCategoryID" @(selectedCategory == cat.JobCategoryID ? "selected" : "")>@cat.JobCategory</option>
+                                        <option value="@cat.JobCategoryID"
+                                                @(ViewBag.SelectedCategory != null && ViewBag.SelectedCategory == cat.JobCategoryID ? "selected" : "")>
+                                            @cat.JobCategory
+                                        </option>
                                     }
                                 </select>
                             </div>
@@ -63,9 +66,12 @@
                                 </label>
                                 <select name="natureId" class="form-select shadow-sm border rounded">
                                     <option value="">All Job Types</option>
-                                    @foreach (var nature in natures)
+                                    @foreach (var nat in ViewBag.Natures as List<DatabaseLayer.JobNatureTable>)
                                     {
-                                        <option value="@nature.JobNatureID" @(selectedNature == nature.JobNatureID ? "selected" : "")>@nature.JobNature</option>
+                                        <option value="@nat.JobNatureID"
+                                                @(ViewBag.SelectedNature != null && ViewBag.SelectedNature == nat.JobNatureID ? "selected" : "")>
+                                            @nat.JobNature
+                                        </option>
                                     }
                                 </select>
                             </div>
@@ -80,6 +86,7 @@
                 </div>
             </div>
         </div>
+
 
 
         <!-- Jobs Grid -->

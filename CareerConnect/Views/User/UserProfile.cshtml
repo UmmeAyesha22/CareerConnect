@@ -1,0 +1,166 @@
+﻿@model CareerConnect.Models.UserMV
+@{
+    ViewBag.Title = "User Profile";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="\Content\assets\css\user-profile.css" />
+}
+
+<div class="profile-container">
+    <!-- Background Elements -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container-fluid px-4 py-5">
+        <!-- Header Section -->
+        <div class="profile-header text-center mb-5">
+            <div class="profile-avatar mb-4">
+                <div class="avatar-circle">
+                    <i class="fas fa-user fa-3x"></i>
+                </div>
+                <div class="status-indicator"></div>
+            </div>
+            <h1 class="profile-name">@Model.UserName</h1>
+            <p class="profile-subtitle">@Model.UserTypeName</p>
+        </div>
+
+        <!-- Messages -->
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="custom-alert alert-success mb-4">
+                <div class="alert-content">
+                    <i class="fas fa-check-circle me-3"></i>
+                    <span>@TempData["SuccessMessage"]</span>
+                </div>
+            </div>
+        }
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="custom-alert alert-error mb-4">
+                <div class="alert-content">
+                    <i class="fas fa-exclamation-triangle me-3"></i>
+                    <span>@ViewBag.ErrorMessage</span>
+                </div>
+            </div>
+        }
+
+        <!-- Profile Information Card -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-id-card me-2"></i>
+                            Profile Information
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- User Information Grid -->
+                        <div class="info-grid">
+                            <!-- Username -->
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Username</div>
+                                    <div class="info-value">@Model.UserName</div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Email Address</div>
+                                    <div class="info-value">@Model.EmailAddress</div>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Phone Number</div>
+                                    <div class="info-value">@Model.ContactNo</div>
+                                </div>
+                            </div>
+
+                            <!-- User Type -->
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-user-tag"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Account Type</div>
+                                    <div class="info-value">
+                                        <span class="user-type-badge">@Model.UserTypeName</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons mt-4">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline">
+                        <i class="fas fa-home me-2"></i>
+                        Back to Home
+                    </a>
+                    <a href="@Url.Action("EditProfile", "User")" class="btn btn-primary">
+                        <i class="fas fa-edit me-2"></i>
+                        Edit Profile
+                    </a>
+                </div>
+
+                <!-- Additional Stats/Info Section -->
+                <div class="profile-stats mt-5">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">Member Since</div>
+                                    <div class="stat-value">2024</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">Account Status</div>
+                                    <div class="stat-value">Active</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-label">Profile</div>
+                                    <div class="stat-value">Verified</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

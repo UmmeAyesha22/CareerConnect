@@ -1,0 +1,46 @@
+﻿@model DatabaseLayer.JobApplysTable
+@{
+    ViewBag.Title = "Apply for Job";
+    bool alreadyApplied = ViewBag.AlreadyApplied != null && (bool)ViewBag.AlreadyApplied;
+}
+
+<h2>Apply for: @ViewBag.JobTitle</h2>
+
+@if (alreadyApplied)
+{
+    <div class="alert alert-info">
+        You have already applied. <strong>Status:</strong> @ViewBag.Status
+    </div>
+
+    <div class="form-group mt-2">
+        <a href="@Url.Action("AppliedJobs", "JobApplication")" class="btn btn-primary">
+            View My Applications
+        </a>
+    </div>
+}
+else
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.PostJobID)
+        @Html.HiddenFor(m => m.EmployeeID)
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.JobApplyStatusUpdateReason, "Why should you be considered?")
+            @Html.TextAreaFor(m => m.JobApplyStatusUpdateReason, new { @class = "form-control", rows = 5, placeholder = "Type your reason here..." })
+            @Html.ValidationMessageFor(m => m.JobApplyStatusUpdateReason, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Apply" class="btn btn-primary" />
+        </div>
+    }
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-2">
+        @TempData["SuccessMessage"]
+    </div>
+}

@@ -1,0 +1,66 @@
+﻿
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #f8f9fa;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.bg-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    background: linear-gradient(135deg, #0d6efd, #6c757d);
+}
+
+.shape-1 {
+    width: 150px;
+    height: 150px;
+    top: -40px;
+    left: -40px;
+}
+
+.shape-2 {
+    width: 100px;
+    height: 100px;
+    bottom: -20px;
+    right: -20px;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    top: 200px;
+    right: -30px;
+}
+
+.shape-4 {
+    width: 120px;
+    height: 120px;
+    bottom: 150px;
+    left: -30px;
+}
+
+.login-card .form-control {
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.login-card .btn-primary {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+
+ 

@@ -1,0 +1,107 @@
+﻿@model DatabaseLayer.PostJobTable
+@{
+    ViewBag.Title = "Edit Job";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/EditJob.css" />
+}
+
+<div class="edit-job-container">
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <div class="container-fluid px-4 py-5">
+        <!-- Header -->
+        <div class="page-header text-center mb-5">
+            <div class="header-icon mb-3">
+                <i class="fas fa-edit fa-3x"></i>
+            </div>
+            <h1 class="page-title">Edit Job</h1>
+            <p class="page-subtitle">Update your job posting details below</p>
+        </div>
+
+        <!-- Edit Job Form -->
+        <div class="form-card shadow-sm p-4 rounded">
+            @using (Html.BeginForm("Edit", "PostJob", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.PostJobID)
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobTitle, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.JobTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.CompanyID, "Company", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.CompanyID, (SelectList)ViewBag.CompanyID, "-- Select Company --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(m => m.CompanyID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobCategoryID, "Category", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.JobCategoryID, (SelectList)ViewBag.JobCategoryID, "-- Select Category --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(m => m.JobCategoryID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Location, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.Location, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Location, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.MinSalary, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.MinSalary, new { @class = "form-control", type = "number" })
+                        @Html.ValidationMessageFor(m => m.MinSalary, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.MaxSalary, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.MaxSalary, new { @class = "form-control", type = "number" })
+                        @Html.ValidationMessageFor(m => m.MaxSalary, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Vacancy, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.Vacancy, new { @class = "form-control", type = "number" })
+                        @Html.ValidationMessageFor(m => m.Vacancy, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobNatureID, "Job Nature", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.JobNatureID, (SelectList)ViewBag.JobNatureID, "-- Select Job Nature --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(m => m.JobNatureID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobRequirementsID, "Job Requirements", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.JobRequirementsID, (SelectList)ViewBag.JobRequirementsID, "-- Select Requirement --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(m => m.JobRequirementsID, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.ApplicationLastDate, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.ApplicationLastDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(m => m.ApplicationLastDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-actions mt-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-2">
+                        <i class="fas fa-save me-1"></i> Save Changes
+                    </button>
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

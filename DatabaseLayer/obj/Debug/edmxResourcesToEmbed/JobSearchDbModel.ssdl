@@ -22,13 +22,13 @@
     <Key>
       <PropertyRef Name="CompanyID" />
     </Key>
-    <Property Name="CompanyID" Type="int" Nullable="false" />
-    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CompanyName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="ContactNo" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="EmailAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Logo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar(max)" />
     <Property Name="Description" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="CountryTable">
@@ -60,14 +60,12 @@
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="JobCategoryID" Type="int" Nullable="false" />
     <Property Name="EmployeeName" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="DOB" Type="date" Nullable="false" />
-    <Property Name="CNIC" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="FNIC" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
     <Property Name="FatherName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="CountryID" Type="int" Nullable="false" />
     <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Gender" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar(max)" />
     <Property Name="Qualification" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="PermanentAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="JobReferences" Type="nvarchar" MaxLength="250" />
@@ -79,7 +77,7 @@
       <PropertyRef Name="JobApplyID" />
     </Key>
     <Property Name="JobApplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
     <Property Name="JobApplyDateTime" Type="datetime" Nullable="false" />
     <Property Name="JobApplyStatusID" Type="int" Nullable="false" />
     <Property Name="JobApplyStatusUpdateDate" Type="datetime" Nullable="false" />
@@ -112,7 +110,7 @@
     <Key>
       <PropertyRef Name="JobRequirementDate" />
     </Key>
-    <Property Name="JobRequirementDate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobRequirementDate" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="JobRequirementID" Type="int" Nullable="false" />
     <Property Name="JobRequirementDetails" Type="nvarchar" MaxLength="2000" Nullable="false" />
   </EntityType>
@@ -120,9 +118,9 @@
     <Key>
       <PropertyRef Name="JobRequirementID" />
     </Key>
-    <Property Name="JobRequirementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobRequirementID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="JobRequirementTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="PostJobID" Type="int" Nullable="false" />
+    <Property Name="PostJobID" Type="int" />
   </EntityType>
   <EntityType Name="JobStatusTable">
     <Key>
@@ -187,7 +185,7 @@
       <PropertyRef Name="UserTypeID" />
     </Key>
     <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserType" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
   <EntityType Name="WorkExperienceTable">
     <Key>
@@ -286,18 +284,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JobApplysTable_EmployeeTable1">
-    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
-    <End Role="JobApplysTable" Type="Self.JobApplysTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EmployeeTable">
-        <PropertyRef Name="EmployeeID" />
-      </Principal>
-      <Dependent Role="JobApplysTable">
-        <PropertyRef Name="EmployeeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_JobApplysTable_JobApplyStatusTable">
     <End Role="JobApplyStatusTable" Type="Self.JobApplyStatusTable" Multiplicity="1" />
     <End Role="JobApplysTable" Type="Self.JobApplysTable" Multiplicity="*" />
@@ -379,18 +365,6 @@
       </Principal>
       <Dependent Role="PostJobTable">
         <PropertyRef Name="JobNatureID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PostJobTable_JobRequirementDetailTable">
-    <End Role="JobRequirementDetailTable" Type="Self.JobRequirementDetailTable" Multiplicity="1" />
-    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="JobRequirementDetailTable">
-        <PropertyRef Name="JobRequirementDate" />
-      </Principal>
-      <Dependent Role="PostJobTable">
-        <PropertyRef Name="JobRequirementsID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -538,10 +512,6 @@
       <End Role="UserTable" EntitySet="UserTable" />
       <End Role="EmployeeTable" EntitySet="EmployeeTable" />
     </AssociationSet>
-    <AssociationSet Name="FK_JobApplysTable_EmployeeTable1" Association="Self.FK_JobApplysTable_EmployeeTable1">
-      <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-      <End Role="JobApplysTable" EntitySet="JobApplysTable" />
-    </AssociationSet>
     <AssociationSet Name="FK_JobApplysTable_JobApplyStatusTable" Association="Self.FK_JobApplysTable_JobApplyStatusTable">
       <End Role="JobApplyStatusTable" EntitySet="JobApplyStatusTable" />
       <End Role="JobApplysTable" EntitySet="JobApplysTable" />
@@ -568,10 +538,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_PostJobTable_JobNatureTable" Association="Self.FK_PostJobTable_JobNatureTable">
       <End Role="JobNatureTable" EntitySet="JobNatureTable" />
-      <End Role="PostJobTable" EntitySet="PostJobTable" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PostJobTable_JobRequirementDetailTable" Association="Self.FK_PostJobTable_JobRequirementDetailTable">
-      <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTable" />
       <End Role="PostJobTable" EntitySet="PostJobTable" />
     </AssociationSet>
     <AssociationSet Name="FK_PostJobTable_JobRequirementsTable" Association="Self.FK_PostJobTable_JobRequirementsTable">

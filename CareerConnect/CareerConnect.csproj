@@ -96,18 +96,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\animate.min.css" />
+    <Content Include="Content\assets\css\applied-jobs.css" />
+    <Content Include="Content\assets\css\available-jobs.css" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\delete-job.css" />
+    <Content Include="Content\assets\css\EditJob.css" />
     <Content Include="Content\assets\css\flaticon.css" />
     <Content Include="Content\assets\css\fontawesome-all.min.css" />
+    <Content Include="Content\assets\css\login.css" />
     <Content Include="Content\assets\css\magnific-popup.css" />
     <Content Include="Content\assets\css\nice-select.css" />
     <Content Include="Content\assets\css\owl.carousel.min.css" />
+    <Content Include="Content\assets\css\post-job.css" />
+    <Content Include="Content\assets\css\posted-jobs.css" />
     <Content Include="Content\assets\css\price_rangs.css" />
+    <Content Include="Content\assets\css\register.css" />
     <Content Include="Content\assets\css\responsive.css" />
     <Content Include="Content\assets\css\slick.css" />
     <Content Include="Content\assets\css\slicknav.css" />
     <Content Include="Content\assets\css\style.css" />
     <Content Include="Content\assets\css\themify-icons.css" />
+    <Content Include="Content\assets\css\user-profile.css" />
     <Content Include="Content\assets\fonts\fa-brands-400.svg" />
     <Content Include="Content\assets\fonts\fa-regular-400.svg" />
     <Content Include="Content\assets\fonts\fa-solid-900.svg" />
@@ -175,6 +184,7 @@
     <Content Include="Content\assets\img\icon\job-list2.png" />
     <Content Include="Content\assets\img\icon\job-list3.png" />
     <Content Include="Content\assets\img\icon\job-list4.png" />
+    <Content Include="Content\assets\img\logo\cn_logo.png" />
     <Content Include="Content\assets\img\logo\form-iocn.jpg" />
     <Content Include="Content\assets\img\logo\loder.jpg" />
     <Content Include="Content\assets\img\logo\logo.png" />
@@ -261,6 +271,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Uploads\form-iocn.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -272,11 +283,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CountryTablesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobApplicationController.cs" />
+    <Compile Include="Controllers\JobCategoryTablesController.cs" />
+    <Compile Include="Controllers\JobNatureTablesController.cs" />
+    <Compile Include="Controllers\JobRequirementDetailController.cs" />
+    <Compile Include="Controllers\PostJobController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyMV.cs" />
+    <Compile Include="Models\LoginMV.cs" />
+    <Compile Include="Models\UserMV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -348,8 +369,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\CountryTables\Create.cshtml" />
-    <Content Include="Views\CountryTables\Delete.cshtml" />
-    <Content Include="Views\CountryTables\Details.cshtml" />
     <Content Include="Views\CountryTables\Edit.cshtml" />
     <Content Include="Views\CountryTables\Index.cshtml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -359,6 +378,32 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\JobCategoryTables\Create.cshtml" />
+    <Content Include="Views\JobCategoryTables\Edit.cshtml" />
+    <Content Include="Views\JobCategoryTables\Index.cshtml" />
+    <Content Include="Views\CountryTables\Delete.cshtml" />
+    <Content Include="Views\JobNatureTables\Create.cshtml" />
+    <Content Include="Views\JobNatureTables\Edit.cshtml" />
+    <Content Include="Views\JobNatureTables\Index.cshtml" />
+    <Content Include="Views\User\NewUser.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Dashboard.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\User\ManageUsers.cshtml" />
+    <Content Include="Views\User\AllUsers.cshtml" />
+    <Content Include="Views\PostJob\Create.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\Create.cshtml" />
+    <Content Include="Views\PostJob\Index.cshtml" />
+    <Content Include="Views\Company\Edit.cshtml" />
+    <Content Include="Views\Company\Delete.cshtml" />
+    <Content Include="Views\PostJob\Edit.cshtml" />
+    <Content Include="Views\PostJob\AvailableJobs.cshtml" />
+    <Content Include="Views\PostJob\Delete.cshtml" />
+    <Content Include="Views\JobRequirementDetail\Create.cshtml" />
+    <Content Include="Views\JobApplication\Apply.cshtml" />
+    <Content Include="Views\JobApplication\JobApplications.cshtml" />
+    <Content Include="Views\JobApplication\AppliedJobs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -368,7 +413,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">

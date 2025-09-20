@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="JobSeacrhDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="JobSeacrhDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountStatusTable">
           <Key>
             <PropertyRef Name="AccountStatusID" />
@@ -27,13 +27,13 @@
           <Key>
             <PropertyRef Name="CompanyID" />
           </Key>
-          <Property Name="CompanyID" Type="int" Nullable="false" />
-          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="ContactNo" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="Logo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Logo" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="CountryTable">
@@ -65,14 +65,12 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="JobCategoryID" Type="int" Nullable="false" />
           <Property Name="EmployeeName" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="DOB" Type="date" Nullable="false" />
-          <Property Name="CNIC" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="FNIC" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOB" Type="datetime" Nullable="false" />
           <Property Name="FatherName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="CountryID" Type="int" Nullable="false" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Gender" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
           <Property Name="Qualification" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="PermanentAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="JobReferences" Type="nvarchar" MaxLength="250" />
@@ -84,7 +82,7 @@
             <PropertyRef Name="JobApplyID" />
           </Key>
           <Property Name="JobApplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
           <Property Name="JobApplyDateTime" Type="datetime" Nullable="false" />
           <Property Name="JobApplyStatusID" Type="int" Nullable="false" />
           <Property Name="JobApplyStatusUpdateDate" Type="datetime" Nullable="false" />
@@ -117,7 +115,7 @@
           <Key>
             <PropertyRef Name="JobRequirementDate" />
           </Key>
-          <Property Name="JobRequirementDate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobRequirementDate" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="JobRequirementID" Type="int" Nullable="false" />
           <Property Name="JobRequirementDetails" Type="nvarchar" MaxLength="2000" Nullable="false" />
         </EntityType>
@@ -125,9 +123,9 @@
           <Key>
             <PropertyRef Name="JobRequirementID" />
           </Key>
-          <Property Name="JobRequirementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobRequirementID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="JobRequirementTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="PostJobID" Type="int" Nullable="false" />
+          <Property Name="PostJobID" Type="int" />
         </EntityType>
         <EntityType Name="JobStatusTable">
           <Key>
@@ -192,7 +190,7 @@
             <PropertyRef Name="UserTypeID" />
           </Key>
           <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserType" Type="nvarchar" MaxLength="150" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkExperienceTable">
           <Key>
@@ -291,18 +289,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_JobApplysTable_EmployeeTable1">
-          <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
-          <End Role="JobApplysTable" Type="Self.JobApplysTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeTable">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="JobApplysTable">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_JobApplysTable_JobApplyStatusTable">
           <End Role="JobApplyStatusTable" Type="Self.JobApplyStatusTable" Multiplicity="1" />
           <End Role="JobApplysTable" Type="Self.JobApplysTable" Multiplicity="*" />
@@ -384,18 +370,6 @@
             </Principal>
             <Dependent Role="PostJobTable">
               <PropertyRef Name="JobNatureID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PostJobTable_JobRequirementDetailTable">
-          <End Role="JobRequirementDetailTable" Type="Self.JobRequirementDetailTable" Multiplicity="1" />
-          <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="JobRequirementDetailTable">
-              <PropertyRef Name="JobRequirementDate" />
-            </Principal>
-            <Dependent Role="PostJobTable">
-              <PropertyRef Name="JobRequirementsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -543,10 +517,6 @@
             <End Role="UserTable" EntitySet="UserTable" />
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_JobApplysTable_EmployeeTable1" Association="Self.FK_JobApplysTable_EmployeeTable1">
-            <End Role="EmployeeTable" EntitySet="EmployeeTable" />
-            <End Role="JobApplysTable" EntitySet="JobApplysTable" />
-          </AssociationSet>
           <AssociationSet Name="FK_JobApplysTable_JobApplyStatusTable" Association="Self.FK_JobApplysTable_JobApplyStatusTable">
             <End Role="JobApplyStatusTable" EntitySet="JobApplyStatusTable" />
             <End Role="JobApplysTable" EntitySet="JobApplysTable" />
@@ -573,10 +543,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_PostJobTable_JobNatureTable" Association="Self.FK_PostJobTable_JobNatureTable">
             <End Role="JobNatureTable" EntitySet="JobNatureTable" />
-            <End Role="PostJobTable" EntitySet="PostJobTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PostJobTable_JobRequirementDetailTable" Association="Self.FK_PostJobTable_JobRequirementDetailTable">
-            <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTable" />
             <End Role="PostJobTable" EntitySet="PostJobTable" />
           </AssociationSet>
           <AssociationSet Name="FK_PostJobTable_JobRequirementsTable" Association="Self.FK_PostJobTable_JobRequirementsTable">
@@ -612,8 +578,7 @@
             <End Role="WorkExperienceTable" EntitySet="WorkExperienceTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JobSeacrhDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -641,13 +606,13 @@
           <Key>
             <PropertyRef Name="CompanyID" />
           </Key>
-          <Property Name="CompanyID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserTable" Relationship="Self.FK_CompanyTable_UserTable" FromRole="CompanyTable" ToRole="UserTable" />
           <NavigationProperty Name="PostJobTables" Relationship="Self.FK_PostJobTable_CompanyTable" FromRole="CompanyTable" ToRole="PostJobTable" />
@@ -686,14 +651,12 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="JobCategoryID" Type="Int32" Nullable="false" />
           <Property Name="EmployeeName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FatherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CountryID" Type="Int32" Nullable="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Qualification" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PermanentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="JobReferences" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -704,7 +667,6 @@
           <NavigationProperty Name="EducationTables" Relationship="Self.FK_EducationTable_EmployeeTable" FromRole="EmployeeTable" ToRole="EducationTable" />
           <NavigationProperty Name="JobCategoryTable" Relationship="Self.FK_EmployeeTable_JobCategoryTable" FromRole="EmployeeTable" ToRole="JobCategoryTable" />
           <NavigationProperty Name="UserTable" Relationship="Self.FK_EmployeeTable_UserTable" FromRole="EmployeeTable" ToRole="UserTable" />
-          <NavigationProperty Name="JobApplysTables" Relationship="Self.FK_JobApplysTable_EmployeeTable1" FromRole="EmployeeTable" ToRole="JobApplysTable" />
           <NavigationProperty Name="LanguageTables" Relationship="Self.FK_LanguageTable_EmployeeTable" FromRole="EmployeeTable" ToRole="LanguageTable" />
           <NavigationProperty Name="SkillTables" Relationship="Self.FK_SkillTable_EmployeeTable" FromRole="EmployeeTable" ToRole="SkillTable" />
           <NavigationProperty Name="WorkExperienceTables" Relationship="Self.FK_WorkExperienceTable_EmployeeTable1" FromRole="EmployeeTable" ToRole="WorkExperienceTable" />
@@ -714,13 +676,12 @@
             <PropertyRef Name="JobApplyID" />
           </Key>
           <Property Name="JobApplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
           <Property Name="JobApplyDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="JobApplyStatusID" Type="Int32" Nullable="false" />
           <Property Name="JobApplyStatusUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="JobApplyStatusUpdateReason" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="PostJobID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EmployeeTable" Relationship="Self.FK_JobApplysTable_EmployeeTable1" FromRole="JobApplysTable" ToRole="EmployeeTable" />
           <NavigationProperty Name="JobApplyStatusTable" Relationship="Self.FK_JobApplysTable_JobApplyStatusTable" FromRole="JobApplysTable" ToRole="JobApplyStatusTable" />
           <NavigationProperty Name="PostJobTable" Relationship="Self.FK_JobApplysTable_PostJobTable" FromRole="JobApplysTable" ToRole="PostJobTable" />
         </EntityType>
@@ -758,7 +719,6 @@
           <Property Name="JobRequirementID" Type="Int32" Nullable="false" />
           <Property Name="JobRequirementDetails" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="JobRequirementsTable" Relationship="Self.FK_JobRequirementDetailTable_JobRequirementsTable" FromRole="JobRequirementDetailTable" ToRole="JobRequirementsTable" />
-          <NavigationProperty Name="PostJobTables" Relationship="Self.FK_PostJobTable_JobRequirementDetailTable" FromRole="JobRequirementDetailTable" ToRole="PostJobTable" />
         </EntityType>
         <EntityType Name="JobRequirementsTable">
           <Key>
@@ -766,7 +726,7 @@
           </Key>
           <Property Name="JobRequirementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="JobRequirementTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PostJobID" Type="Int32" Nullable="false" />
+          <Property Name="PostJobID" Type="Int32" />
           <NavigationProperty Name="JobRequirementDetailTables" Relationship="Self.FK_JobRequirementDetailTable_JobRequirementsTable" FromRole="JobRequirementsTable" ToRole="JobRequirementDetailTable" />
           <NavigationProperty Name="PostJobTables" Relationship="Self.FK_PostJobTable_JobRequirementsTable" FromRole="JobRequirementsTable" ToRole="PostJobTable" />
         </EntityType>
@@ -813,7 +773,6 @@
           <NavigationProperty Name="JobApplysTables" Relationship="Self.FK_JobApplysTable_PostJobTable" FromRole="PostJobTable" ToRole="JobApplysTable" />
           <NavigationProperty Name="JobCategoryTable" Relationship="Self.FK_PostJobTable_JobCategoryTable" FromRole="PostJobTable" ToRole="JobCategoryTable" />
           <NavigationProperty Name="JobNatureTable" Relationship="Self.FK_PostJobTable_JobNatureTable" FromRole="PostJobTable" ToRole="JobNatureTable" />
-          <NavigationProperty Name="JobRequirementDetailTable" Relationship="Self.FK_PostJobTable_JobRequirementDetailTable" FromRole="PostJobTable" ToRole="JobRequirementDetailTable" />
           <NavigationProperty Name="JobRequirementsTable" Relationship="Self.FK_PostJobTable_JobRequirementsTable" FromRole="PostJobTable" ToRole="JobRequirementsTable" />
           <NavigationProperty Name="JobStatusTable" Relationship="Self.FK_PostJobTable_JobStatusTable" FromRole="PostJobTable" ToRole="JobStatusTable" />
           <NavigationProperty Name="UserTable" Relationship="Self.FK_PostJobTable_UserTable" FromRole="PostJobTable" ToRole="UserTable" />
@@ -849,7 +808,7 @@
             <PropertyRef Name="UserTypeID" />
           </Key>
           <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserTables" Relationship="Self.FK_UserTypeTable_UserTable" FromRole="UserTypeTable" ToRole="UserTable" />
         </EntityType>
         <EntityType Name="WorkExperienceTable">
@@ -987,18 +946,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_JobApplysTable_EmployeeTable1">
-          <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
-          <End Role="JobApplysTable" Type="Self.JobApplysTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeTable">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="JobApplysTable">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LanguageTable_EmployeeTable">
           <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
           <End Role="LanguageTable" Type="Self.LanguageTable" Multiplicity="*" />
@@ -1092,18 +1039,6 @@
             </Principal>
             <Dependent Role="JobRequirementDetailTable">
               <PropertyRef Name="JobRequirementID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PostJobTable_JobRequirementDetailTable">
-          <End Role="JobRequirementDetailTable" Type="Self.JobRequirementDetailTable" Multiplicity="1" />
-          <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="JobRequirementDetailTable">
-              <PropertyRef Name="JobRequirementDate" />
-            </Principal>
-            <Dependent Role="PostJobTable">
-              <PropertyRef Name="JobRequirementsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1215,10 +1150,6 @@
             <End Role="UserTable" EntitySet="UserTables" />
             <End Role="EmployeeTable" EntitySet="EmployeeTables" />
           </AssociationSet>
-          <AssociationSet Name="FK_JobApplysTable_EmployeeTable1" Association="Self.FK_JobApplysTable_EmployeeTable1">
-            <End Role="EmployeeTable" EntitySet="EmployeeTables" />
-            <End Role="JobApplysTable" EntitySet="JobApplysTables" />
-          </AssociationSet>
           <AssociationSet Name="FK_LanguageTable_EmployeeTable" Association="Self.FK_LanguageTable_EmployeeTable">
             <End Role="EmployeeTable" EntitySet="EmployeeTables" />
             <End Role="LanguageTable" EntitySet="LanguageTables" />
@@ -1250,10 +1181,6 @@
           <AssociationSet Name="FK_JobRequirementDetailTable_JobRequirementsTable" Association="Self.FK_JobRequirementDetailTable_JobRequirementsTable">
             <End Role="JobRequirementsTable" EntitySet="JobRequirementsTables" />
             <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PostJobTable_JobRequirementDetailTable" Association="Self.FK_PostJobTable_JobRequirementDetailTable">
-            <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTables" />
-            <End Role="PostJobTable" EntitySet="PostJobTables" />
           </AssociationSet>
           <AssociationSet Name="FK_PostJobTable_JobRequirementsTable" Association="Self.FK_PostJobTable_JobRequirementsTable">
             <End Role="JobRequirementsTable" EntitySet="JobRequirementsTables" />
@@ -1343,8 +1270,6 @@
                 <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
                 <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-                <ScalarProperty Name="FNIC" ColumnName="FNIC" />
                 <ScalarProperty Name="FatherName" ColumnName="FatherName" />
                 <ScalarProperty Name="CountryID" ColumnName="CountryID" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />

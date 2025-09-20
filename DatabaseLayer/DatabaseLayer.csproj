@@ -59,6 +59,8 @@
     <Compile Include="CompanyTable.cs">
       <DependentUpon>JobSearchDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompanyTable.Partial.cs" />
+    <Compile Include="CompanyTable.Validation.cs" />
     <Compile Include="CountryTable.cs">
       <DependentUpon>JobSearchDbModel.tt</DependentUpon>
     </Compile>

@@ -1,0 +1,50 @@
+﻿@model DatabaseLayer.CompanyTable
+@{
+    ViewBag.Title = "Edit Company";
+}
+
+<h2>Edit Company</h2>
+
+@using (Html.BeginForm("Edit", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.CompanyID)
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.CompanyName)
+        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.ContactNo)
+        @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.PhoneNo)
+        @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.EmailAddress)
+        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        <label>Current Logo</label><br />
+        <img src="@Url.Content(Model.Logo)" alt="Logo" width="80" />
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.Label("Change Logo (optional)")
+        <input type="file" name="LogoFile" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Update</button>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary mt-2" })
+}

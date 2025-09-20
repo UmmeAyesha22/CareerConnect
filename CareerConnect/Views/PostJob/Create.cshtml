@@ -1,0 +1,83 @@
+﻿@model DatabaseLayer.PostJobTable
+@{
+    ViewBag.Title = "Post a Job";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/post-job.css" />
+}
+
+<div class="post-job-container">
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <div class="post-job-container">
+        <div class="post-job-card p-4 shadow-sm rounded">
+            <h2 class="text-center mb-4">Post a Job</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobTitle, "Job Title", new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.JobTitle, new { @class = "form-control shadow-sm rounded" })
+                        @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Location, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.Location, new { @class = "form-control shadow-sm rounded" })
+                        @Html.ValidationMessageFor(m => m.Location)
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.MinSalary, "Min Salary", new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.MinSalary, new { @class = "form-control shadow-sm rounded", type = "number" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.MaxSalary, "Max Salary", new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.MaxSalary, new { @class = "form-control shadow-sm rounded", type = "number" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Vacancy, new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.Vacancy, new { @class = "form-control shadow-sm rounded", type = "number" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.CompanyID, "Company", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.CompanyID, (SelectList)ViewBag.CompanyID, "-- Select Company --", new { @class = "form-select shadow-sm rounded" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobCategoryID, "Category", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.JobCategoryID, (SelectList)ViewBag.JobCategoryID, "-- Select Category --", new { @class = "form-select shadow-sm rounded" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.JobNatureID, "Job Nature", new { @class = "form-label fw-semibold" })
+                        @Html.DropDownListFor(m => m.JobNatureID, (SelectList)ViewBag.JobNatureID, "-- Select Job Nature --", new { @class = "form-select shadow-sm rounded" })
+                    </div>
+
+                    <div class="col-12">
+                        @Html.LabelFor(m => m.JobDescription, "Job Description", new { @class = "form-label fw-semibold" })
+                        @Html.TextAreaFor(m => m.JobDescription, new { @class = "form-control shadow-sm rounded", rows = 4 })
+                    </div>
+
+                    <div class="col-12 text-center mt-3">
+                        <button type="submit" class="btn btn-primary px-5 shadow-sm">Post Job</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

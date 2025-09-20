@@ -1,0 +1,100 @@
+﻿/* --- register.css --- */
+
+/* Body / Section */
+.registration-section {
+    background: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    /* Card Container */
+    .registration-section .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 40px 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .registration-section .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+    /* Form Header */
+    .registration-section h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #333333;
+    }
+
+    /* Validation Summary */
+    .registration-section .text-danger {
+        font-size: 0.875rem;
+    }
+
+    /* Form Inputs */
+    .registration-section .form-control,
+    .registration-section .form-select {
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.95rem;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .registration-section .form-control:focus,
+        .registration-section .form-select:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+            outline: none;
+        }
+
+    /* Submit Button */
+    .registration-section .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 50px;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .registration-section .btn-primary:hover {
+            background-color: #0b5ed7;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+
+    /* Links */
+    .registration-section a {
+        color: #0d6efd;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        .registration-section a:hover {
+            text-decoration: underline;
+        }
+
+    /* Alerts */
+    .registration-section .alert-success {
+        font-size: 0.95rem;
+        border-radius: 8px;
+        padding: 10px 15px;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .registration-section .card {
+        padding: 30px 20px;
+    }
+
+    .registration-section h2 {
+        font-size: 24px;
+    }
+}

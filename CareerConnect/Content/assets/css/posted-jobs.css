@@ -1,0 +1,180 @@
+﻿/* posted-jobs.css */
+
+/* Container & Background */
+.posted-jobs-container {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f6ff, #f3e8ff);
+    padding: 40px 20px;
+}
+
+/* Background Shapes */
+.bg-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.shape-1 {
+    width: 180px;
+    height: 180px;
+    top: 5%;
+    left: 10%;
+    background: #d6eaff;
+}
+
+.shape-2 {
+    width: 220px;
+    height: 220px;
+    top: 15%;
+    right: 10%;
+    background: #e9d6ff;
+}
+
+.shape-3 {
+    width: 140px;
+    height: 140px;
+    bottom: 20%;
+    left: 5%;
+    background: #cde8ff;
+}
+
+.shape-4 {
+    width: 160px;
+    height: 160px;
+    bottom: 10%;
+    right: 15%;
+    background: #e6ccff;
+}
+
+/* Page Header */
+.page-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .page-header .header-icon {
+        font-size: 3rem;
+        color: #6f42c1;
+        margin-bottom: 15px;
+    }
+
+    .page-header .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .page-header .page-subtitle {
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+.jobs-count .count-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #a8d8ff;
+    color: #333;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Table Card */
+.table-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+    .table thead {
+        background: linear-gradient(90deg, #a8d8ff, #d8bfff);
+    }
+
+        .table thead th {
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+            padding: 12px;
+        }
+
+    .table tbody td {
+        vertical-align: middle;
+        padding: 10px;
+    }
+
+/* Status Dropdown */
+.form-select-sm {
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border-color: #ced4da;
+    padding: 4px 8px;
+}
+
+/* Buttons */
+/* Make action buttons thicker and prominent */
+.btn-sm {
+    padding: 8px 14px; /* Slightly larger padding */
+    font-size: 0.9rem; /* Slightly bigger font */
+    border-radius: 6px;
+    border: 2px solid transparent; /* Default border */
+    transition: all 0.2s ease;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+    border: 2px solid #e0a800; /* Thicker border */
+}
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+        color: #fff;
+        border-color: #c69500;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: 2px solid #bb2d3b; /* Thicker border */
+}
+
+    .btn-danger:hover {
+        background-color: #bb2d3b;
+        border-color: #991f2b;
+    }
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 50px 0;
+    color: #555;
+}
+
+    .empty-state i {
+        font-size: 4rem;
+        color: #6f42c1;
+        margin-bottom: 20px;
+    }
+
+    .empty-state h4 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .empty-state p {
+        font-size: 1rem;
+    }

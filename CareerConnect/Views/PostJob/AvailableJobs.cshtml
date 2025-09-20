@@ -1,0 +1,179 @@
+﻿@model IEnumerable<DatabaseLayer.PostJobTable>
+@{
+    ViewBag.Title = "Available Jobs";
+    var selectedCategory = ViewBag.SelectedCategory as int?;
+    var selectedNature = ViewBag.SelectedNature as int?;
+    var categories = ViewBag.Categories as List<DatabaseLayer.JobCategoryTable>;
+    var natures = ViewBag.Natures as List<DatabaseLayer.JobNatureTable>;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="\Content\assets\css\available-jobs.css" />
+}
+
+<div class="jobs-container">
+    <!-- Background Elements -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <div class="container-fluid px-4 py-5">
+        <!-- Header Section -->
+        <div class="page-header text-center mb-5">
+            <div class="header-icon mb-4">
+                <i class="fas fa-briefcase fa-3x"></i>
+            </div>
+            <h1 class="page-title">Available Jobs</h1>
+            <p class="page-subtitle">Discover your next career opportunity</p>
+            <div class="jobs-count">
+                <span class="count-badge">@Model.Count() Jobs Available</span>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <!-- Filter Section -->
+        <div class="filter-section mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="filter-card p-4 shadow-sm rounded">
+                        <h3 class="filter-title mb-3">
+                            <i class="fas fa-filter me-2"></i> Filter Jobs
+                        </h3>
+                        @using (Html.BeginForm("AvailableJobs", "PostJob", FormMethod.Get, new { @class = "filter-form row g-3 align-items-end" }))
+                        {
+                            <div class="col-md-5">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-tags me-2"></i> Job Category
+                                </label>
+                                <select name="categoryId" class="form-select shadow-sm border rounded">
+                                    <option value="">All Categories</option>
+                                    @foreach (var cat in categories)
+                                    {
+                                        <option value="@cat.JobCategoryID" @(selectedCategory == cat.JobCategoryID ? "selected" : "")>@cat.JobCategory</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-5">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-clock me-2"></i> Job Nature
+                                </label>
+                                <select name="natureId" class="form-select shadow-sm border rounded">
+                                    <option value="">All Job Types</option>
+                                    @foreach (var nature in natures)
+                                    {
+                                        <option value="@nature.JobNatureID" @(selectedNature == nature.JobNatureID ? "selected" : "")>@nature.JobNature</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-2 d-grid">
+                                <button type="submit" class="btn btn-primary w-100 shadow-sm">
+                                    <i class="fas fa-search me-1"></i> Filter
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Jobs Grid -->
+        @if (!Model.Any())
+        {
+            <!-- Empty State -->
+            <div class="text-center py-5">
+                <div class="empty-icon mb-4">
+                    <i class="fas fa-search fa-4x"></i>
+                </div>
+                <h4 class="empty-title">No Jobs Found</h4>
+                <p class="empty-subtitle">Try adjusting your filters to find more opportunities</p>
+            </div>
+        }
+        else
+        {
+            <div class="jobs-grid">
+                @foreach (var job in Model)
+                {
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div class="company-logo">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="job-status">
+                                @if (job.JobStatusID == 2 && job.ApplicationLastDate >= DateTime.Today)
+                                {
+                                    <span class="status-badge status-open">Open</span>
+                                }
+                                else
+                                {
+                                    <span class="status-badge status-closed">Closed</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="job-content">
+                            <h3 class="job-title">@job.JobTitle</h3>
+                            <div class="company-name">
+                                <i class="fas fa-building me-2"></i>
+                                @job.CompanyTable.CompanyName
+                            </div>
+
+                            <div class="job-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-tag"></i>
+                                    <span>@job.JobCategoryTable.JobCategory</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>@job.Location</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>@job.MinSalary - @job.MaxSalary</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>@job.Vacancy Positions</span>
+                                </div>
+                            </div>
+
+                            <div class="job-meta">
+                                <div class="job-nature">
+                                    <i class="fas fa-clock me-1"></i>
+                                    @job.JobNatureTable.JobNature
+                                </div>
+                                <div class="deadline">
+                                    <i class="fas fa-calendar-times me-1"></i>
+                                    Apply by @job.ApplicationLastDate.ToString("MMM dd, yyyy")
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="job-actions">
+                            @if (job.JobStatusID == 2 && job.ApplicationLastDate >= DateTime.Today)
+                            {
+                                @Html.ActionLink("Apply Now", "Apply", "JobApplication", new { postJobId = job.PostJobID }, new { @class = "btn btn-apply" })
+                                <a href="#" class="btn btn-details">
+                                    <i class="fas fa-eye me-1"></i>
+                                    View Details
+                                </a>
+                            }
+                            else
+                            {
+                                <button class="btn btn-closed" disabled>
+                                    <i class="fas fa-lock me-1"></i>
+                                    Application Closed
+                                </button>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

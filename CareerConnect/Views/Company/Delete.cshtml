@@ -1,0 +1,42 @@
+﻿@model DatabaseLayer.CompanyTable
+@{
+    ViewBag.Title = "Delete Company";
+}
+
+<h2>Delete Company</h2>
+
+<h4>Are you sure you want to delete this company?</h4>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Logo</dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content(Model.Logo)" alt="Logo" width="80" />
+        </dd>
+
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.CompanyName</dd>
+
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.EmailAddress</dd>
+
+        <dt class="col-sm-2">Contact</dt>
+        <dd class="col-sm-10">@Model.ContactNo</dd>
+
+        <dt class="col-sm-2">Phone</dt>
+        <dd class="col-sm-10">@Model.PhoneNo</dd>
+
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Company", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.CompanyID)
+        <button type="submit" class="btn btn-danger">Delete</button>
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary" })
+    }
+
+</div>

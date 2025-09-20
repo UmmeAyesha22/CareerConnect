@@ -14,18 +14,10 @@ namespace DatabaseLayer
     
     public partial class JobRequirementDetailTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public JobRequirementDetailTable()
-        {
-            this.PostJobTables = new HashSet<PostJobTable>();
-        }
-    
         public int JobRequirementDate { get; set; }
         public int JobRequirementID { get; set; }
         public string JobRequirementDetails { get; set; }
     
         public virtual JobRequirementsTable JobRequirementsTable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostJobTable> PostJobTables { get; set; }
     }
 }

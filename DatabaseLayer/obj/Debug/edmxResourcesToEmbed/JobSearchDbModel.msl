@@ -66,8 +66,6 @@
           <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
           <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="FNIC" ColumnName="FNIC" />
           <ScalarProperty Name="FatherName" ColumnName="FatherName" />
           <ScalarProperty Name="CountryID" ColumnName="CountryID" />
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />

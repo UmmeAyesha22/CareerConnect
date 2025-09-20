@@ -1,0 +1,378 @@
+﻿@model IEnumerable<DatabaseLayer.JobApplysTable>
+@{
+    ViewBag.Title = "Applications";
+    int userType = Session["UserTypeID"] != null ? (int)Session["UserTypeID"] : 0;
+}
+
+<div class="container-fluid px-4 py-4">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="display-6 fw-bold text-dark mb-1">Job Applications</h1>
+            <p class="text-muted mb-0">Manage applications for your posted positions</p>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="badge bg-light text-primary fs-6 px-4 py-2 rounded-pill">
+                <i class="fas fa-clipboard-list me-2"></i>@Model.Count() Total Applications
+            </div>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <!-- Empty State -->
+        <div class="text-center py-5 my-5">
+            <div class="bg-light rounded-circle mx-auto mb-4 d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-inbox fa-2x text-muted"></i>
+            </div>
+            <h4 class="text-muted mb-3">No Applications Yet</h4>
+            <p class="text-muted">Applications for your posted jobs will appear here once candidates start applying.</p>
+        </div>
+    }
+    else
+    {
+        <!-- Applications List -->
+        <div class="applications-container">
+            @foreach (var app in Model)
+            {
+                <div class="application-card mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <!-- Job Information -->
+                                <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="job-icon me-3">
+                                            <div class="bg-primary-gradient rounded-3 p-3 d-inline-flex align-items-center justify-content-center">
+                                                <i class="fas fa-briefcase text-white fa-lg"></i>
+                                            </div>
+                                        </div>
+                                        <div class="job-details">
+                                            <h5 class="fw-bold text-dark mb-1 job-title" title="@app.PostJobTable?.JobTitle">
+                                                @(app.PostJobTable?.JobTitle ?? "Unknown Job")
+                                            </h5>
+                                            <div class="d-flex align-items-center text-muted">
+                                                <i class="fas fa-user me-2 small"></i>
+                                                <span class="small">Applicant ID: @app.EmployeeID</span>
+                                            </div>
+                                            @if (!string.IsNullOrEmpty(app.JobApplyStatusUpdateReason))
+                                            {
+                                                <div class="mt-2">
+                                                    <small class="text-muted">
+                                                        <i class="fas fa-comment-dots me-1"></i>
+                                                        @app.JobApplyStatusUpdateReason
+                                                    </small>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 text-center">
+                                    <div class="status-badge-container">
+                                        <span class="status-badge
+                                            @(app.JobApplyStatusID == 1 ? "status-pending" :
+                                              app.JobApplyStatusID == 2 ? "status-approved" :
+                                              app.JobApplyStatusID == 3 ? "status-cancelled" :
+                                              app.JobApplyStatusID == 4 ? "status-shortlisted" :
+                                              app.JobApplyStatusID == 5 ? "status-selected" : "status-unknown")">
+                                            <i class="fas
+                                                @(app.JobApplyStatusID == 1 ? "fa-clock" :
+                                                  app.JobApplyStatusID == 2 ? "fa-check-circle" :
+                                                  app.JobApplyStatusID == 3 ? "fa-times-circle" :
+                                                  app.JobApplyStatusID == 4 ? "fa-star" :
+                                                  app.JobApplyStatusID == 5 ? "fa-trophy" : "fa-question-circle") me-2"></i>
+                                            @(app.JobApplyStatusTable?.JobApplyStatus ?? "Unknown")
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Actions -->
+                                <div class="col-lg-4 col-md-6">
+                                    @if (app.JobApplyStatusID == 1 && userType == 2)
+                                    {
+                                        <div class="action-buttons d-flex flex-wrap gap-3">
+                                            @using (Html.BeginForm("UpdateApplicationStatus", "JobApplication", FormMethod.Post, new { @class = "d-inline-block" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("jobApplyId", app.JobApplyID)
+                                                @Html.Hidden("statusId", 2)
+                                                <button type="submit" class="btn btn-approve btn-sm">
+                                                    <i class="fas fa-check me-1"></i>Approve
+                                                </button>
+                                            }
+
+                                            @using (Html.BeginForm("UpdateApplicationStatus", "JobApplication", FormMethod.Post, new { @class = "d-inline-block" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("jobApplyId", app.JobApplyID)
+                                                @Html.Hidden("statusId", 4)
+                                                <button type="submit" class="btn btn-shortlist btn-sm">
+                                                    <i class="fas fa-star me-1"></i>Shortlist
+                                                </button>
+                                            }
+
+                                            @using (Html.BeginForm("UpdateApplicationStatus", "JobApplication", FormMethod.Post, new { @class = "d-inline-block" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("jobApplyId", app.JobApplyID)
+                                                @Html.Hidden("statusId", 5)
+                                                <button type="submit" class="btn btn-select btn-sm">
+                                                    <i class="fas fa-user-check me-1"></i>Select
+                                                </button>
+                                            }
+
+                                            @using (Html.BeginForm("UpdateApplicationStatus", "JobApplication", FormMethod.Post, new { @class = "d-inline-block" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("jobApplyId", app.JobApplyID)
+                                                @Html.Hidden("statusId", 3)
+                                                <button type="submit" class="btn btn-cancel btn-sm">
+                                                    <i class="fas fa-times me-1"></i>Cancel
+                                                </button>
+                                            }
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-center">
+                                            <div class="no-actions-badge">
+                                                <i class="fas fa-lock me-2"></i>
+                                                <span>Action Completed</span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="success-toast position-fixed top-0 start-50 translate-middle-x mt-4" style="z-index: 1060;">
+        <div class="alert alert-success shadow-lg border-0 rounded-4 px-4 py-3 d-flex align-items-center">
+            <i class="fas fa-check-circle text-success me-3 fa-lg"></i>
+            <span class="fw-medium">@TempData["SuccessMessage"]</span>
+        </div>
+    </div>
+}
+
+<style>
+    /* Custom Color Palette */
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --approve-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        --shortlist-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --select-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        --cancel-gradient: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --shadow-hover: 0 8px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+    }
+
+    /* Application Cards */
+    .application-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+        .application-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .application-card .card {
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .application-card:hover .card {
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+        }
+
+    /* Job Title */
+    .job-title {
+        font-size: 1.1rem;
+        color: #2d3748;
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* Job Icon */
+    .bg-primary-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Status Badges */
+    .status-badge {
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        display: inline-flex;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .status-pending {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        color: #d63031;
+    }
+
+    .status-approved {
+        background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+        color: #00b894;
+    }
+
+    .status-cancelled {
+        background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+        color: #e84393;
+    }
+
+    .status-shortlisted {
+        background: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%);
+        color: #5f3dc4;
+    }
+
+    .status-selected {
+        background: linear-gradient(135deg, #fd79a8 0%, #ff7675 100%);
+        color: #d63031;
+    }
+
+    .status-unknown {
+        background: linear-gradient(135deg, #ddd6fe 0%, #e0e7ff 100%);
+        color: #6b7280;
+    }
+
+    /* Custom Buttons */
+    .btn {
+        border-radius: 12px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        margin: 2px;
+        min-width: 100px;
+    }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+    .btn-approve {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+    }
+
+        .btn-approve:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+            color: white;
+        }
+
+    .btn-shortlist {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    }
+
+        .btn-shortlist:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+            color: white;
+        }
+
+    .btn-select {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #4a5568;
+        box-shadow: 0 4px 15px rgba(168, 237, 234, 0.3);
+    }
+
+        .btn-select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(168, 237, 234, 0.4);
+            color: #2d3748;
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        color: #6b46c1;
+        box-shadow: 0 4px 15px rgba(210, 153, 194, 0.3);
+    }
+
+        .btn-cancel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(210, 153, 194, 0.4);
+            color: #553c9a;
+        }
+
+    /* No Actions Badge */
+    .no-actions-badge {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: #6c757d;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Success Toast Animation */
+    .success-toast {
+        animation: slideInDown 0.5s ease-out;
+    }
+
+    /* Responsive Design for Mobile */
+    .action-buttons-mobile {
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+
+    .job-title-mobile {
+        max-width: 200px;
+    }
+
+    .container-mobile {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* Additional spacing for action buttons */
+    .action-buttons .d-inline-block {
+        margin: 3px;
+    }
+</style>

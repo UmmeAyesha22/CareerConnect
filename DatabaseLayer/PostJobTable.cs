@@ -42,7 +42,6 @@ namespace DatabaseLayer
         public virtual ICollection<JobApplysTable> JobApplysTables { get; set; }
         public virtual JobCategoryTable JobCategoryTable { get; set; }
         public virtual JobNatureTable JobNatureTable { get; set; }
-        public virtual JobRequirementDetailTable JobRequirementDetailTable { get; set; }
         public virtual JobRequirementsTable JobRequirementsTable { get; set; }
         public virtual JobStatusTable JobStatusTable { get; set; }
         public virtual UserTable UserTable { get; set; }

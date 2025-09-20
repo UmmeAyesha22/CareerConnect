@@ -23,7 +23,7 @@ namespace DatabaseLayer
     
         public int JobRequirementID { get; set; }
         public string JobRequirementTitle { get; set; }
-        public int PostJobID { get; set; }
+        public Nullable<int> PostJobID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobRequirementDetailTable> JobRequirementDetailTables { get; set; }

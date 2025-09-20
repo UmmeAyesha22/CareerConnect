@@ -1,0 +1,22 @@
+﻿@model DatabaseLayer.JobRequirementDetailTable
+@{
+    ViewBag.Title = "Add Job Requirement";
+}
+
+<h2>Add Job Requirement</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.JobRequirementDetails, "Requirement", new { @class = "form-label" })
+        @Html.TextAreaFor(m => m.JobRequirementDetails, new { @class = "form-control", rows = 3, placeholder = "Type requirement here..." })
+        @Html.ValidationMessageFor(m => m.JobRequirementDetails)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save Requirement" class="btn btn-primary" />
+        <a href="@Url.Action("Create", "PostJob")" class="btn btn-secondary ms-2">Back to Job</a>
+    </div>
+}

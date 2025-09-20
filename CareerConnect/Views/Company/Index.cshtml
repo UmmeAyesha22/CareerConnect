@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DatabaseLayer.CompanyTable>
+@{
+    ViewBag.Title = "Companies";
+}
+
+<h2>Companies</h2>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Phone</th>
+            <th>Description</th>
+            <th style="display: flex; justify-content: center; ">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(item.Logo)" alt="Logo" width="60" />
+                </td>
+                <td>@item.CompanyName</td>
+                <td>@item.EmailAddress</td>
+                <td>@item.ContactNo</td>
+                <td>@item.PhoneNo</td>
+                <td>@item.Description</td>
+                <td class="d-flex justify-content-center align-items-center" style="gap:5px; height:60px;">
+                    @* Only show buttons for Admin (1) or Job Provider (2) *@
+                    @if (Session["UserTypeID"] != null)
+                    {
+                        int userType = (int)Session["UserTypeID"];
+                        if (userType == 1 || userType == 2)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }, new { @class = "btn btn-sm btn-warning" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID }, new { @class = "btn btn-sm btn-danger" })
+                        }
+                    }
+                </td>
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -19,7 +19,6 @@ namespace DatabaseLayer
         {
             this.CertificateTables = new HashSet<CertificateTable>();
             this.EducationTables = new HashSet<EducationTable>();
-            this.JobApplysTables = new HashSet<JobApplysTable>();
             this.LanguageTables = new HashSet<LanguageTable>();
             this.SkillTables = new HashSet<SkillTable>();
             this.WorkExperienceTables = new HashSet<WorkExperienceTable>();
@@ -30,8 +29,6 @@ namespace DatabaseLayer
         public int JobCategoryID { get; set; }
         public string EmployeeName { get; set; }
         public System.DateTime DOB { get; set; }
-        public string CNIC { get; set; }
-        public string FNIC { get; set; }
         public string FatherName { get; set; }
         public int CountryID { get; set; }
         public string EmailAddress { get; set; }
@@ -50,8 +47,6 @@ namespace DatabaseLayer
         public virtual ICollection<EducationTable> EducationTables { get; set; }
         public virtual JobCategoryTable JobCategoryTable { get; set; }
         public virtual UserTable UserTable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobApplysTable> JobApplysTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LanguageTable> LanguageTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

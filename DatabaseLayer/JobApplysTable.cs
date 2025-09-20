@@ -15,14 +15,13 @@ namespace DatabaseLayer
     public partial class JobApplysTable
     {
         public int JobApplyID { get; set; }
-        public int EmployeeID { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
         public System.DateTime JobApplyDateTime { get; set; }
         public int JobApplyStatusID { get; set; }
         public System.DateTime JobApplyStatusUpdateDate { get; set; }
         public string JobApplyStatusUpdateReason { get; set; }
         public int PostJobID { get; set; }
     
-        public virtual EmployeeTable EmployeeTable { get; set; }
         public virtual JobApplyStatusTable JobApplyStatusTable { get; set; }
         public virtual PostJobTable PostJobTable { get; set; }
     }

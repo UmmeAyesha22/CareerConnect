@@ -1,0 +1,31 @@
+﻿@model List<CareerConnect.Models.UserMV>
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+<h2 class="mb-4">All Users</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Contact No</th>
+            <th>User Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserID</td>
+                <td>@user.UserName</td>
+                <td>@user.EmailAddress</td>
+                <td>@user.ContactNo</td>
+                <td>@user.UserTypeName</td>
+            </tr>
+        }
+    </tbody>
+</table>

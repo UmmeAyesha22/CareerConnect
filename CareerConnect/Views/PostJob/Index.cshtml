@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DatabaseLayer.PostJobTable>
+@{
+    ViewBag.Title = "Posted Jobs";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/Content/assets/css/posted-jobs.css" />
+}
+<h2>Posted Jobs</h2>
+
+<div class="posted-jobs-container">
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <div class="table-card">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Vacancy</th>
+                    <th>Job Nature</th>
+                    <th>Application Last Date</th>
+                    <th>Status</th>
+                    @{
+                        int? currentUserType = Session["UserTypeID"] as int?;
+                    }
+
+                    @if (currentUserType.HasValue && (currentUserType.Value == 2))
+                    {
+                        <th style="text-align:center;">Actions</th>
+                    }
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var job in Model)
+                {
+                    <tr>
+                        <td>@job.JobTitle</td>
+                        <td>@job.CompanyTable.CompanyName</td>
+                        <td>@job.JobCategoryTable.JobCategory</td>
+                        <td>@job.Location</td>
+                        <td>@job.MinSalary - @job.MaxSalary</td>
+                        <td>@job.Vacancy</td>
+                        <td>@job.JobNatureTable.JobNature</td>
+                        <td>@job.ApplicationLastDate.ToShortDateString()</td>
+                        <td>
+                            @* Show status dropdown only for Admin *@
+                            @if (Session["UserTypeID"] != null && (int)Session["UserTypeID"] == 1)
+                            {
+                                using (Html.BeginForm("UpdateStatus", "PostJob", FormMethod.Post))
+                                {
+                                    @Html.Hidden("jobId", job.PostJobID)
+                                    <select name="statusId" class="form-select form-select-sm" onchange="this.form.submit()">
+                                        <option value="1" @(job.JobStatusID == 1 ? "selected" : "")>Pending</option>
+                                        <option value="2" @(job.JobStatusID == 2 ? "selected" : "")>Approved</option>
+                                        <option value="3" @(job.JobStatusID == 3 ? "selected" : "")>Cancelled</option>
+                                    </select>
+                                }
+                            }
+                            else
+                            {
+                                string statusText = job.JobStatusTable.JobStatus ?? "N/A";
+                                @statusText
+                            }
+                        </td>
+                        <td class="d-flex justify-content-center align-items-center" style="gap:5px; height:60px;">
+                            @* Actions only for Admin or Job Provider who owns the job *@
+                            @{
+                                int? userType = Session["UserTypeID"] as int?;
+                                int? userId = Session["UserID"] as int?;
+                            }
+                            @if (userType.HasValue && userId.HasValue)
+                            {
+                                if ((userType.Value == 2 && job.UserID == userId.Value))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = job.PostJobID }, new { @class = "btn btn-sm btn-warning me-1" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = job.PostJobID }, new { @class = "btn btn-sm btn-danger" })
+                                }
+                            }
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+ 
+
+<section class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h2 class="contact-title">Welcome, @ViewBag.UserName 👋</h2>
+                <p class="lead">This is your dashboard. From here you can manage your account and access job portal features.</p>
+            </div>
+
+            <!-- Dashboard Widgets -->
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card shadow-sm text-center p-3">
+                    <h4>Profile</h4>
+                    <p>View or edit your profile information.</p>
+                    <a href="@Url.Action("Profile","User")" class="btn btn-primary">Manage Profile</a>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card shadow-sm text-center p-3">
+                    <h4>Applications</h4>
+                    <p>Track your job applications and statuses.</p>
+                    <a href="@Url.Action("MyApplications","User")" class="btn btn-info">View Applications</a>
+                </div>
+            </div>
+
+            <!-- Logout Widget -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card shadow-sm text-center p-3">
+                    <h4>Logout</h4>
+                    <p>Sign out from your account securely.</p>
+                    <a href="@Url.Action("Logout","User")" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

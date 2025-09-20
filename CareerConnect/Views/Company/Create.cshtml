@@ -1,0 +1,43 @@
+﻿@model CareerConnect.Models.CompanyMV
+@{
+    ViewBag.Title = "Create Company";
+}
+
+<h2>Create Company</h2>
+
+@using (Html.BeginForm("Create", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.CompanyName)
+        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.ContactNo)
+        @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.PhoneNo)
+        @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.EmailAddress)
+        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.Label("Logo (Upload Image)")
+        <input type="file" name="LogoFile" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+}

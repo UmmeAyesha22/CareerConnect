@@ -22,6 +22,32 @@ main.container {
     padding: 0 !important;
     margin: 0 !important;
 }
+/* --- Animated Light Grey Gradient Background --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #f9f9f9, #ececec, #f3f3f3, #e6e6e6);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+    min-height: 100vh;
+    color: #333; /* darker text for readability */
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 /* ================================================
    PROFESSIONAL HERO SECTION
@@ -102,17 +128,19 @@ main.container {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: transparent;
     position: relative;
 }
 
-/* Fallback for browsers that don't support background-clip: text */
+/* Fallback for browsers that don't support gradient text */
 @supports not (-webkit-background-clip: text) {
     .highlight-text {
         color: var(--accent-color);
         background-image: none;
     }
 }
+
+
 
 .hero-description {
     font-size: 1.2rem;
@@ -995,3 +1023,97 @@ main.container {
     outline: 2px solid var(--accent-color);
     outline-offset: 1px;
 }
+/* --- Modern Gradient Button Styles (from Applied Jobs page) --- */
+/* --- Thicker Pale Purple Buttons --- */
+.btn {
+    border-radius: 14px;
+    font-weight: 700; /* Bold */
+    padding: 18px 42px; /* Thicker padding */
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.1rem; /* Slightly larger text */
+    letter-spacing: 0.8px;
+    margin: 8px;
+    min-width: 160px; /* Wider */
+    cursor: pointer;
+    color: #fff;
+    background: #b9a8f5; /* Pale Purple */
+    box-shadow: 0 6px 18px rgba(185, 168, 245, 0.35);
+}
+
+    /* Hover Effect */
+    .btn:hover {
+        background: #a38ce8; /* Slightly darker pale purple */
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(163, 140, 232, 0.45);
+    }
+
+    /* Active (Click Press) */
+    .btn:active {
+        transform: scale(0.97);
+        background: #8c72d9; /* Darker pressed effect */
+    }
+
+
+.btn-primary,
+.btn-info,
+.btn-success,
+.btn-warning,
+.btn-danger {
+    background: #b9a8f5 !important;
+    color: #fff !important;
+    border: none;
+    font-weight: 700;
+    padding: 18px 42px;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 18px rgba(185, 168, 245, 0.35);
+}
+
+    .btn-primary:hover,
+    .btn-info:hover,
+    .btn-success:hover,
+    .btn-warning:hover,
+    .btn-danger:hover {
+        background: #a38ce8 !important;
+        box-shadow: 0 8px 24px rgba(163, 140, 232, 0.45);
+    }
+
+/* --- Card Styling --- */
+.card {
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+    }
+/* ===== Header Buttons Round Style ===== */
+.head-btn1,
+.head-btn2 {
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 18px 42px;
+    border: none;
+    font-size: 1.1rem;
+    color: #fff;
+    background: #b9a8f5;
+    box-shadow: 0 6px 18px rgba(185, 168, 245, 0.35);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    text-align: center;
+}
+
+    .head-btn1:hover,
+    .head-btn2:hover {
+        background: #a38ce8;
+        box-shadow: 0 8px 24px rgba(163, 140, 232, 0.45);
+        transform: translateY(-2px);
+    }

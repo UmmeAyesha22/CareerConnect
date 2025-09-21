@@ -192,38 +192,31 @@
     margin-top: 1.5rem;
 }
 
-.btn {
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
+/* ===== Header Buttons Round Style ===== */
+.head-btn1,
+.head-btn2 {
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 18px 42px;
     border: none;
-    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: #fff;
+    background: #b9a8f5;
+    box-shadow: 0 6px 18px rgba(185, 168, 245, 0.35);
+    text-decoration: none;
+    display: inline-block;
     transition: all 0.3s ease;
-    cursor: pointer;
+    margin-left: 10px;
+    text-align: center;
 }
 
-.btn-primary {
-    background: #0d6efd;
-    color: white;
-}
-
-    .btn-primary:hover {
-        background: #0b5ed7;
+    .head-btn1:hover,
+    .head-btn2:hover {
+        background: #a38ce8;
+        box-shadow: 0 8px 24px rgba(163, 140, 232, 0.45);
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
     }
 
-.btn-outline {
-    background: #ffffff;
-    color: #0d6efd;
-    border: 2px solid #0d6efd;
-}
-
-    .btn-outline:hover {
-        background: #0d6efd;
-        color: white;
-    }
 
 /* Responsive */
 @media (max-width: 576px) {

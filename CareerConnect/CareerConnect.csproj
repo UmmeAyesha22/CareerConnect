@@ -104,6 +104,7 @@
     <Content Include="Content\assets\css\company-create.css" />
     <Content Include="Content\assets\css\company-delete.css" />
     <Content Include="Content\assets\css\company-table.css" />
+    <Content Include="Content\assets\css\country-create.css" />
     <Content Include="Content\assets\css\country-delete.css" />
     <Content Include="Content\assets\css\country-edit.css" />
     <Content Include="Content\assets\css\country-index.css" />
@@ -417,6 +418,7 @@
     <Content Include="Views\Home\Page.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

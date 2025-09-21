@@ -158,6 +158,60 @@ namespace CareerConnect.Controllers
             return View(users);
         }
 
+        public ActionResult Edit()
+        {
+            if (Session["UserID"] == null)
+                return RedirectToAction("Login");
+
+            int userId = (int)Session["UserID"];
+            var user = Db.UserTables.FirstOrDefault(u => u.UserID == userId);
+
+            if (user == null)
+                return RedirectToAction("Login");
+
+            ViewBag.UserTypeID = new SelectList(Db.UserTypeTables, "UserTypeID", "UserType", user.UserTypeID);
+
+            var model = new UserMV
+            {
+                UserID = user.UserID,
+                UserName = user.UserName,
+                Password = user.Password,
+                EmailAddress = user.EmailAddress,
+                ContactNo = user.ContactNo,
+                UserTypeID = user.UserTypeID
+            };
+
+            return View(model); // This will now correctly find Edit.cshtml
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(UserMV model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.UserTypeID = new SelectList(Db.UserTypeTables, "UserTypeID", "UserType", model.UserTypeID);
+                return View(model);
+            }
+
+            var user = Db.UserTables.FirstOrDefault(u => u.UserID == model.UserID);
+            if (user == null)
+                return HttpNotFound();
+
+            // Update fields
+            user.UserName = model.UserName;
+            user.Password = model.Password;
+            user.EmailAddress = model.EmailAddress;
+            user.ContactNo = model.ContactNo;
+            user.UserTypeID = model.UserTypeID;
+
+            Db.SaveChanges();
+
+            TempData["SuccessMessage"] = "Profile updated successfully!";
+            return RedirectToAction("UserProfile");
+        }
+
+
 
     }
 }

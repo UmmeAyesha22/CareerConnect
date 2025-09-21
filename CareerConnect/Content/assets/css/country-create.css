@@ -1,0 +1,104 @@
+﻿/* ================================================
+   GENERIC BUTTON STYLE
+   ================================================ */
+.genric-btn {
+    border-radius: 50px; /* fully rounded pill shape */
+    font-weight: 700; /* bold text */
+    padding: 14px 40px; /* consistent padding */
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 140px; /* optional: ensures button width consistency */
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+    /* Hover Effect */
+    .genric-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    /* Active / Click */
+    .genric-btn:active {
+        transform: scale(0.97);
+    }
+
+    /* SUCCESS BUTTON */
+    .genric-btn.success {
+        background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); /* light sky blue gradient */
+    }
+
+/* DEFAULT / BACK BUTTON */
+.btn-default {
+    background: #6c757d; /* gray */
+    color: #fff;
+    border-radius: 50px;
+    padding: 14px 40px;
+    transition: all 0.3s ease;
+}
+
+    .btn-default:hover {
+        background: #5a6268;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+.btn {
+    border-radius: 14px;
+    font-weight: 700; /* Bold */
+    padding: 18px 42px; /* Thicker padding */
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.1rem; /* Slightly larger text */
+    letter-spacing: 0.8px;
+    margin: 8px;
+    min-width: 160px; /* Wider */
+    cursor: pointer;
+    color: #fff;
+    background: #b9a8f5; /* Pale Purple */
+    box-shadow: 0 6px 18px rgba(185, 168, 245, 0.35);
+}
+
+    /* Hover Effect */
+    .btn:hover {
+        background: #a38ce8; /* Slightly darker pale purple */
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(163, 140, 232, 0.45);
+    }
+
+    /* Active (Click Press) */
+    .btn:active {
+        transform: scale(0.97);
+        background: #8c72d9; /* Darker pressed effect */
+    }
+
+
+.btn-primary,
+.btn-info,
+.btn-success,
+.btn-warning,
+.btn-danger {
+    background: #b9a8f5 !important;
+    color: #fff !important;
+    border: none;
+    font-weight: 700;
+    padding: 18px 42px;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 18px rgba(185, 168, 245, 0.35);
+}
+
+    .btn-primary:hover,
+    .btn-info:hover,
+    .btn-success:hover,
+    .btn-warning:hover,
+    .btn-danger:hover {
+        background: #a38ce8 !important;
+        box-shadow: 0 8px 24px rgba(163, 140, 232, 0.45);
+    }

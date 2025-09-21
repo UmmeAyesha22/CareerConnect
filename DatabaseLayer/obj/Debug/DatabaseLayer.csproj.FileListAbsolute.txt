@@ -22,3 +22,15 @@ F:\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CoreCompileInputs.cac
 F:\gitproject\DatabaseLayer\obj\Debug\Database.D87FB5DC.Up2Date
 F:\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.dll
 F:\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\DatabaseLayer.dll.config
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\DatabaseLayer.dll
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\EntityFramework.dll
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\EntityFramework.xml
+D:\CareerConnect\4\gitproject\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\CareerConnect\4\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.AssemblyReference.cache
+D:\CareerConnect\4\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CoreCompileInputs.cache
+D:\CareerConnect\4\gitproject\DatabaseLayer\obj\Debug\Database.D87FB5DC.Up2Date
+D:\CareerConnect\4\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.dll
+D:\CareerConnect\4\gitproject\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
